@@ -465,7 +465,7 @@
             }, 3000);
         }
 
-        // [BARU] Fungsi untuk memuat data absensi yang ada atau membersihkan input jika tidak ada
+        // Fungsi untuk memuat data absensi yang ada atau membersihkan input jika tidak ada
         function loadOrClearAbsensi() {
             const tanggal = document.getElementById('tanggal').value;
             const namaSekolah = document.getElementById('nama-sekolah').textContent;
@@ -1026,7 +1026,7 @@
             renderDaftarSiswa();
             renderDaftarKelas();
             
-            // [DIUBAH] Event listener untuk perubahan tanggal
+            // Event listener untuk perubahan tanggal
             document.getElementById('tanggal').addEventListener('change', loadOrClearAbsensi);
             
             // Event listener untuk filter rekap
@@ -1046,7 +1046,7 @@
                 }
             });
             
-            // [DIUBAH] Event listener untuk perubahan kelas di tab absensi
+            // Event listener untuk perubahan kelas di tab absensi
             document.getElementById('pilih-kelas').addEventListener('change', loadOrClearAbsensi);
             
             // Event listener untuk file import
@@ -1055,6 +1055,37 @@
                     document.getElementById('selected-file').textContent = this.files[0].name;
                 } else {
                     document.getElementById('selected-file').textContent = 'Belum ada file yang dipilih';
+                }
+            });
+
+            // [FITUR BARU] Event listener untuk membatalkan pilihan radio button
+            const daftarSiswaTbody = document.getElementById('daftar-siswa');
+
+            // Event 'mousedown' untuk menandai radio button yang sudah terpilih
+            daftarSiswaTbody.addEventListener('mousedown', function(e) {
+                const target = e.target;
+                if (target.tagName === 'INPUT' && target.type === 'radio' && target.checked) {
+                    // Beri tanda bahwa radio ini sudah 'checked' sebelum di-klik
+                    target.dataset.wasChecked = 'true';
+                }
+            });
+
+            // Event 'click' untuk menghapus pilihan jika ditandai
+            daftarSiswaTbody.addEventListener('click', function(e) {
+                const target = e.target;
+                if (target.tagName === 'INPUT' && target.type === 'radio' && target.dataset.wasChecked === 'true') {
+                    // Jika radio yang di-klik memiliki tanda 'wasChecked', batalkan pilihannya
+                    target.checked = false;
+                    // Hapus tanda agar klik berikutnya berfungsi normal
+                    target.dataset.wasChecked = 'false';
+                } else if (target.tagName === 'INPUT' && target.type === 'radio') {
+                    // Jika ini klik normal, pastikan semua radio lain dalam grup tidak memiliki tanda
+                    const radioGroup = document.getElementsByName(target.name);
+                    radioGroup.forEach(radio => {
+                        if (radio !== target) {
+                            radio.dataset.wasChecked = 'false';
+                        }
+                    });
                 }
             });
         });
@@ -1073,7 +1104,7 @@
             siswaList = [...siswaListBudiAgung];
             kelasList = [...kelasBudiAgung];
             
-            // [DIUBAH] Update dropdown dan muat/bersihkan absensi
+            // Update dropdown dan muat/bersihkan absensi
             populateKelasDropdown();
             loadOrClearAbsensi();
         });
@@ -1091,7 +1122,7 @@
             siswaList = [...siswaListSumbangsih];
             kelasList = [...kelasSumbangsih];
             
-            // [DIUBAH] Update dropdown dan muat/bersihkan absensi
+            // Update dropdown dan muat/bersihkan absensi
             populateKelasDropdown();
             loadOrClearAbsensi();
         });
