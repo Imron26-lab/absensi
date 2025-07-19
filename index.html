@@ -21,12 +21,15 @@
             color: #4b5563;
         }
         .notification {
-            transform: translateY(-100px);
-            transition: transform 0.5s ease;
+            transform: translateY(-120px);
+            opacity: 0;
+            transition: transform 0.4s ease-out, opacity 0.4s ease-out;
         }
         .notification.show {
             transform: translateY(0);
+            opacity: 1;
         }
+        /* Styling untuk mode cetak */
         @media print {
             body * {
                 visibility: hidden;
@@ -48,12 +51,12 @@
 </head>
 <body class="min-h-screen">
     <div class="notification fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50" id="notification">
-        Absen berhasil disimpan!
+        Notifikasi
     </div>
 
     <div class="container mx-auto px-4 py-8 max-w-7xl">
         <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-            <div class="flex no-print">
+            <div class="flex no-print border-b border-gray-200">
                 <button id="tab1-btn" class="tab-active flex-1 py-4 font-medium text-center transition-all duration-200">Absensi Harian</button>
                 <button id="tab2-btn" class="tab-inactive flex-1 py-4 font-medium text-center transition-all duration-200">Rekap Absensi</button>
                 <button id="tab4-btn" class="tab-inactive flex-1 py-4 font-medium text-center transition-all duration-200">Rekap Nilai</button>
@@ -61,22 +64,12 @@
             </div>
 
             <div id="tab1" class="p-6">
-                <div class="mb-8 text-center">
-                    <div class="mb-4"><h2 class="text-lg font-medium text-indigo-700 mb-2">Pilih Sekolah</h2><div class="flex justify-center gap-4"><button id="sekolah-budi-agung" class="bg-indigo-600 text-white px-4 py-2 rounded-lg">SMK Pariwisata Budi Agung</button><button id="sekolah-sumbangsih" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg">SMK Pariwisata Sumbangsih</button></div></div>
-                    <h1 class="text-3xl font-bold text-indigo-700" id="nama-sekolah">SMK Pariwisata Budi Agung</h1>
-                    <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4"><div class="bg-indigo-50 p-4 rounded-lg"><h2 class="text-lg font-medium text-indigo-700">Guru</h2><p class="mt-1" id="nama-guru">MOHAMAD AL-IMRON, S.KOM</p></div><div class="bg-indigo-50 p-4 rounded-lg"><h2 class="text-lg font-medium text-indigo-700">Mata Pelajaran</h2><p class="mt-1" id="mata-pelajaran">Simulasi Digital dan Komunikasi</p></div></div>
-                    <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4"><div class="bg-indigo-50 p-4 rounded-lg"><h2 class="text-lg font-medium text-indigo-700">Kelas</h2><select id="pilih-kelas" class="mt-1 w-full p-2 border border-indigo-200 rounded-md"><option value="">Pilih Kelas</option></select></div><div class="bg-indigo-50 p-4 rounded-lg"><h2 class="text-lg font-medium text-indigo-700">Tanggal</h2><input type="date" id="tanggal" class="mt-1 w-full p-2 border border-indigo-200 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"></div><div class="bg-indigo-50 p-4 rounded-lg"><h2 class="text-lg font-medium text-indigo-700">Materi Pembahasan</h2><select id="pilih-materi" class="mt-1 w-full p-2 border border-indigo-200 rounded-md"><option value="">Pilih Materi</option></select></div></div>
-                </div>
-                <div class="flex flex-wrap gap-3 mb-6">
-                    <button id="hadir-semua" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-all">Hadir Semua</button>
-                    <button id="bersihkan-absen" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-all">Bersihkan Absensi</button>
-                    <button id="simpan-absen" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition-all">Simpan Absen</button>
-                    <button id="ekspor-excel" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition-all">Ekspor ke Excel</button>
-                </div>
+                <div class="mb-8 text-center"><div class="mb-4"><h2 class="text-lg font-medium text-indigo-700 mb-2">Pilih Sekolah</h2><div class="flex justify-center gap-4"><button id="sekolah-budi-agung" class="bg-indigo-600 text-white px-4 py-2 rounded-lg">SMK Pariwisata Budi Agung</button><button id="sekolah-sumbangsih" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg">SMK Pariwisata Sumbangsih</button></div></div><h1 class="text-3xl font-bold text-indigo-700" id="nama-sekolah">SMK Pariwisata Budi Agung</h1><div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4"><div class="bg-indigo-50 p-4 rounded-lg"><h2 class="text-lg font-medium text-indigo-700">Guru</h2><p class="mt-1" id="nama-guru">MOHAMAD AL-IMRON, S.KOM</p></div><div class="bg-indigo-50 p-4 rounded-lg"><h2 class="text-lg font-medium text-indigo-700">Mata Pelajaran</h2><p class="mt-1" id="mata-pelajaran">Simulasi Digital dan Komunikasi</p></div></div><div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4"><div class="bg-indigo-50 p-4 rounded-lg"><h2 class="text-lg font-medium text-indigo-700">Kelas</h2><select id="pilih-kelas" class="mt-1 w-full p-2 border border-indigo-200 rounded-md"><option value="">Pilih Kelas</option></select></div><div class="bg-indigo-50 p-4 rounded-lg"><h2 class="text-lg font-medium text-indigo-700">Tanggal</h2><input type="date" id="tanggal" class="mt-1 w-full p-2 border border-indigo-200 rounded-md"></div><div class="bg-indigo-50 p-4 rounded-lg"><h2 class="text-lg font-medium text-indigo-700">Materi Pembahasan</h2><select id="pilih-materi" class="mt-1 w-full p-2 border border-indigo-200 rounded-md"><option value="">Pilih Materi</option></select></div></div></div>
+                <div class="flex flex-wrap gap-3 mb-6"><button id="hadir-semua" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-all">Hadir Semua</button><button id="bersihkan-absen" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-all">Bersihkan Absensi</button><button id="simpan-absen" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition-all">Simpan Absen</button><button id="ekspor-excel" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition-all">Ekspor ke Excel</button></div>
                 <div class="overflow-x-auto"><table class="min-w-full bg-white border border-gray-200 rounded-lg overflow-hidden"><thead><tr class="bg-indigo-600 text-white"><th class="py-3 px-4 text-left">No</th><th class="py-3 px-4 text-left">NISN</th><th class="py-3 px-4 text-left">Nama</th><th class="py-3 px-4 text-center">Hadir</th><th class="py-3 px-4 text-center">Izin</th><th class="py-3 px-4 text-center">Sakit</th><th class="py-3 px-4 text-center">Absen</th><th class="py-3 px-4 text-center">Nilai</th><th class="py-3 px-4 text-left">Materi</th><th class="py-3 px-4 text-center">Aksi</th></tr></thead><tbody id="daftar-siswa"></tbody></table></div>
             </div>
 
-            <div id="tab2" class="p-6 hidden print-area">
+            <div id="tab2" class="p-6 hidden">
                  <div class="mb-6 flex flex-wrap justify-between items-center"><h2 class="text-2xl font-bold text-indigo-700">Rekap Absensi</h2><div class="flex gap-3 mt-4 sm:mt-0 no-print"><button id="cetak-rekap" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-all">Cetak Rekap</button><button id="ekspor-rekap" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition-all">Ekspor Rekap ke Excel</button></div></div>
                 <div class="mb-6 flex gap-4 no-print"><button id="rekap-harian-btn" class="bg-indigo-600 text-white px-4 py-2 rounded-lg">Rekap Harian</button><button id="rekap-bulanan-btn" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg">Rekap Bulanan</button></div>
                 <div class="mb-6 grid grid-cols-1 md:grid-cols-3 gap-4 no-print"><div id="filter-harian" class="bg-indigo-50 p-4 rounded-lg"><h3 class="font-medium text-indigo-700 mb-2">Pilih Tanggal</h3><input type="date" id="filter-tanggal" class="w-full p-2 border border-indigo-200 rounded-md"></div><div id="filter-bulanan" class="bg-indigo-50 p-4 rounded-lg hidden"><h3 class="font-medium text-indigo-700 mb-2">Pilih Bulan</h3><input type="month" id="filter-bulan" class="w-full p-2 border border-indigo-200 rounded-md"></div><div class="bg-indigo-50 p-4 rounded-lg"><h3 class="font-medium text-indigo-700 mb-2">Sekolah</h3><p id="rekap-sekolah" class="mt-1">SMK Pariwisata Budi Agung</p></div><div class="bg-indigo-50 p-4 rounded-lg"><h3 class="font-medium text-indigo-700 mb-2">Kelas</h3><select id="filter-kelas" class="w-full p-2 border border-indigo-200 rounded-md"><option value="">Semua Kelas</option></select></div><div class="bg-indigo-50 p-4 rounded-lg"><h3 class="font-medium text-indigo-700 mb-2">Mata Pelajaran</h3><p id="rekap-mapel" class="mt-1">Simulasi Digital dan Komunikasi</p></div></div>
@@ -84,7 +77,7 @@
                 <div class="mt-8 grid grid-cols-1 md:grid-cols-5 gap-4"><div class="bg-green-100 p-4 rounded-lg text-center"><h3 class="font-medium text-green-700">Total Hadir</h3><p id="total-hadir" class="text-2xl font-bold text-green-700 mt-2">0</p></div><div class="bg-blue-100 p-4 rounded-lg text-center"><h3 class="font-medium text-blue-700">Total Izin</h3><p id="total-izin" class="text-2xl font-bold text-blue-700 mt-2">0</p></div><div class="bg-yellow-100 p-4 rounded-lg text-center"><h3 class="font-medium text-yellow-700">Total Sakit</h3><p id="total-sakit" class="text-2xl font-bold text-yellow-700 mt-2">0</p></div><div class="bg-red-100 p-4 rounded-lg text-center"><h3 class="font-medium text-red-700">Total Absen</h3><p id="total-absen" class="text-2xl font-bold text-red-700 mt-2">0</p></div><div class="bg-purple-100 p-4 rounded-lg text-center"><h3 class="font-medium text-purple-700">Nilai Rata-rata</h3><p id="total-nilai" class="text-2xl font-bold text-purple-700 mt-2">0</p></div></div>
             </div>
 
-            <div id="tab4" class="p-6 hidden print-area">
+            <div id="tab4" class="p-6 hidden">
                 <div class="mb-6 flex flex-wrap justify-between items-center"><h2 class="text-2xl font-bold text-indigo-700">Rekap Nilai</h2><div class="flex gap-3 mt-4 sm:mt-0 no-print"><button id="cetak-rekap-nilai" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-all">Cetak Nilai</button><button id="ekspor-rekap-nilai" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition-all">Ekspor Nilai ke Excel</button></div></div>
                 <div class="mb-6 flex gap-4 no-print"><button id="rekap-nilai-harian-btn" class="bg-indigo-600 text-white px-4 py-2 rounded-lg">Rekap Harian</button><button id="rekap-nilai-bulanan-btn" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg">Rekap Bulanan</button></div>
                 <div class="mb-6 grid grid-cols-1 md:grid-cols-3 gap-4 no-print"><div id="filter-nilai-harian" class="bg-indigo-50 p-4 rounded-lg"><h3 class="font-medium text-indigo-700 mb-2">Pilih Tanggal</h3><input type="date" id="filter-tanggal-nilai" class="w-full p-2 border border-indigo-200 rounded-md"></div><div id="filter-nilai-bulanan" class="bg-indigo-50 p-4 rounded-lg hidden"><h3 class="font-medium text-indigo-700 mb-2">Pilih Bulan</h3><input type="month" id="filter-bulan-nilai" class="w-full p-2 border border-indigo-200 rounded-md"></div><div class="bg-indigo-50 p-4 rounded-lg"><h3 class="font-medium text-indigo-700 mb-2">Sekolah</h3><p id="rekap-sekolah-nilai" class="mt-1">SMK Pariwisata Budi Agung</p></div><div class="bg-indigo-50 p-4 rounded-lg"><h3 class="font-medium text-indigo-700 mb-2">Kelas</h3><select id="filter-kelas-nilai" class="w-full p-2 border border-indigo-200 rounded-md"><option value="">Semua Kelas</option></select></div></div>
@@ -92,20 +85,18 @@
             </div>
 
             <div id="tab3" class="p-6 hidden">
-                <div class="mb-6 flex flex-wrap justify-between items-center"><h2 class="text-2xl font-bold text-indigo-700">Manajemen Kelas</h2><div class="flex gap-3 mt-4 sm:mt-0"><button id="tambah-kelas" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition-all">Tambah Kelas Baru</button></div></div>
-                <div class="mb-6"><h3 class="text-lg font-medium text-indigo-700 mb-2">Pilih Sekolah</h3><div class="flex gap-4"><button id="kelas-budi-agung" class="bg-indigo-600 text-white px-4 py-2 rounded-lg">SMK Pariwisata Budi Agung</button><button id="kelas-sumbangsih" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg">SMK Pariwisata Sumbangsih</button></div></div>
-                <div class="mb-8"><h3 class="text-lg font-medium text-indigo-700 mb-4">Daftar Kelas</h3><div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="daftar-kelas"></div></div>
-                <div id="detail-kelas" class="hidden"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-medium text-indigo-700">Detail Kelas: <span id="nama-kelas-detail">-</span></h3><div class="flex gap-2"><button id="edit-kelas" class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded-lg">Edit Kelas</button><button id="hapus-kelas" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-lg">Hapus Kelas</button></div></div><div class="grid grid-cols-1 md:grid-cols-2 gap-6"><div><h4 class="text-lg font-medium text-indigo-700 mb-4">Daftar Siswa</h4><div class="mb-4 flex flex-wrap gap-3"><button id="tambah-siswa-kelas" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-all">Tambah Siswa</button><button id="import-siswa" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-all">Import Siswa</button><button id="export-template" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition-all">Download Template</button></div><div class="overflow-x-auto max-h-96"><table class="min-w-full bg-white border border-gray-200 rounded-lg overflow-hidden"><thead><tr class="bg-indigo-600 text-white"><th class="py-3 px-4 text-left">No</th><th class="py-3 px-4 text-left">NISN</th><th class="py-3 px-4 text-left">Nama</th><th class="py-3 px-4 text-center">Aksi</th></tr></thead><tbody id="siswa-dalam-kelas"></tbody></table></div></div><div><h4 class="text-lg font-medium text-indigo-700 mb-4">Daftar Materi Pembahasan</h4><div class="flex gap-2 mb-4"><input type="text" id="input-materi-baru" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Masukkan materi baru..."><button id="tambah-materi" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg">Tambah</button></div><div id="daftar-materi" class="space-y-2 max-h-80 overflow-y-auto bg-gray-50 p-3 rounded-lg"></div></div></div></div>
+                <div class="mb-6 flex flex-wrap justify-between items-center"><h2 class="text-2xl font-bold text-indigo-700">Manajemen Kelas</h2><div class="flex gap-3 mt-4 sm:mt-0"><button id="tambah-kelas" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition-all">Tambah Kelas Baru</button></div></div><div class="mb-6"><h3 class="text-lg font-medium text-indigo-700 mb-2">Pilih Sekolah</h3><div class="flex gap-4"><button id="kelas-budi-agung" class="bg-indigo-600 text-white px-4 py-2 rounded-lg">SMK Pariwisata Budi Agung</button><button id="kelas-sumbangsih" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg">SMK Pariwisata Sumbangsih</button></div></div><div class="mb-8"><h3 class="text-lg font-medium text-indigo-700 mb-4">Daftar Kelas</h3><div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="daftar-kelas"></div></div>
+                <div id="detail-kelas" class="hidden"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-medium text-indigo-700">Detail Kelas: <span id="nama-kelas-detail">-</span></h3><div class="flex gap-2"><button id="edit-kelas" class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded-lg">Edit Kelas</button><button id="hapus-kelas" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-lg">Hapus Kelas</button></div></div><div class="grid grid-cols-1 md:grid-cols-2 gap-6"><div><h4 class="text-lg font-medium text-indigo-700 mb-4">Daftar Siswa</h4><div class="mb-4 flex flex-wrap gap-3"><button id="tambah-siswa-kelas" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg">Tambah Siswa</button><button id="import-siswa" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg">Import Siswa</button><button id="export-template" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg">Template</button></div><div class="overflow-x-auto max-h-96"><table class="min-w-full bg-white border"><thead><tr class="bg-indigo-600 text-white"><th class="py-3 px-4 text-left">No</th><th class="py-3 px-4 text-left">NISN</th><th class="py-3 px-4 text-left">Nama</th><th class="py-3 px-4 text-center">Aksi</th></tr></thead><tbody id="siswa-dalam-kelas"></tbody></table></div></div><div><h4 class="text-lg font-medium text-indigo-700 mb-4">Daftar Materi Pembahasan</h4><div class="flex gap-2 mb-4"><input type="text" id="input-materi-baru" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Masukkan materi baru..."><button id="tambah-materi" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg">Tambah</button></div><div id="daftar-materi" class="space-y-2 max-h-80 overflow-y-auto bg-gray-50 p-3 rounded-lg"></div></div></div></div>
             </div>
         </div>
     </div>
 
-    <div id="modal-tambah-siswa" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"><div class="bg-white rounded-lg p-6 w-full max-w-md"><h2 class="text-xl font-bold mb-4">Tambah Siswa Baru</h2><div class="mb-4"><label class="block text-gray-700 mb-2">NISN</label><input type="text" id="new-nisn" class="w-full p-2 border border-gray-300 rounded-md"></div><div class="mb-4"><label class="block text-gray-700 mb-2">Nama</label><input type="text" id="new-nama" class="w-full p-2 border border-gray-300 rounded-md"></div><div class="mb-4"><label class="block text-gray-700 mb-2">Kelas</label><select id="new-kelas" class="w-full p-2 border border-gray-300 rounded-md"><option value="">Pilih Kelas</option></select></div><div class="flex justify-end gap-2"><button id="batal-tambah" class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded-lg">Batal</button><button id="simpan-tambah" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg">Simpan</button></div></div></div>
-    <div id="modal-edit-siswa" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"><div class="bg-white rounded-lg p-6 w-full max-w-md"><h2 class="text-xl font-bold mb-4">Edit Siswa</h2><div class="mb-4"><label class="block text-gray-700 mb-2">NISN</label><input type="text" id="edit-nisn" class="w-full p-2 border border-gray-300 rounded-md"></div><div class="mb-4"><label class="block text-gray-700 mb-2">Nama</label><input type="text" id="edit-nama" class="w-full p-2 border border-gray-300 rounded-md"></div><div class="mb-4"><label class="block text-gray-700 mb-2">Kelas</label><select id="edit-kelas-select" class="w-full p-2 border border-gray-300 rounded-md"><option value="">Pilih Kelas</option></select></div><input type="hidden" id="edit-siswa-id"><div class="flex justify-end gap-2"><button id="batal-edit" class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded-lg">Batal</button><button id="simpan-edit" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg">Simpan</button></div></div></div>
-    <div id="modal-tambah-kelas" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"><div class="bg-white rounded-lg p-6 w-full max-w-md"><h2 class="text-xl font-bold mb-4">Tambah Kelas Baru</h2><div class="mb-4"><label class="block text-gray-700 mb-2">Nama Kelas</label><input type="text" id="new-nama-kelas" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Contoh: X RPL 1"></div><div class="mb-4"><label class="block text-gray-700 mb-2">Wali Kelas</label><input type="text" id="new-wali-kelas" class="w-full p-2 border border-gray-300 rounded-md"></div><div class="flex justify-end gap-2"><button id="batal-tambah-kelas" class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded-lg">Batal</button><button id="simpan-tambah-kelas" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg">Simpan</button></div></div></div>
-    <div id="modal-edit-kelas" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"><div class="bg-white rounded-lg p-6 w-full max-w-md"><h2 class="text-xl font-bold mb-4">Edit Kelas</h2><div class="mb-4"><label class="block text-gray-700 mb-2">Nama Kelas</label><input type="text" id="edit-nama-kelas" class="w-full p-2 border border-gray-300 rounded-md"></div><div class="mb-4"><label class="block text-gray-700 mb-2">Wali Kelas</label><input type="text" id="edit-wali-kelas" class="w-full p-2 border border-gray-300 rounded-md"></div><input type="hidden" id="edit-kelas-id"><div class="flex justify-end gap-2"><button id="batal-edit-kelas" class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded-lg">Batal</button><button id="simpan-edit-kelas" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg">Simpan</button></div></div></div>
-    <div id="modal-import-siswa" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"><div class="bg-white rounded-lg p-6 w-full max-w-md"><h2 class="text-xl font-bold mb-4">Import Siswa</h2><div class="mb-4"><p class="text-gray-600 mb-2">Upload file Excel (.xlsx) atau CSV yang berisi data siswa.</p><p class="text-gray-600 mb-4">Format: NISN, Nama Siswa</p><label class="block w-full p-3 border-2 border-dashed border-indigo-300 rounded-lg text-center cursor-pointer hover:bg-indigo-50 transition-all"><span class="text-indigo-600 font-medium">Pilih File</span><input type="file" id="file-import" class="hidden" accept=".xlsx,.xls,.csv"></label><p id="selected-file" class="mt-2 text-sm text-gray-500">Belum ada file yang dipilih</p></div><div class="flex justify-end gap-2"><button id="batal-import" class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded-lg">Batal</button><button id="proses-import" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg">Import</button></div></div></div>
-    <div id="modal-preview-import" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"><div class="bg-white rounded-lg p-6 w-full max-w-4xl max-h-[80vh] overflow-y-auto"><h2 class="text-xl font-bold mb-4">Preview Data Import</h2><p class="text-gray-600 mb-4">Berikut adalah data yang akan diimport ke kelas <span id="preview-nama-kelas" class="font-medium"></span>.</p><div class="overflow-x-auto mb-4"><table class="min-w-full bg-white border border-gray-200 rounded-lg overflow-hidden"><thead><tr class="bg-indigo-600 text-white"><th class="py-3 px-4 text-left">No</th><th class="py-3 px-4 text-left">NISN</th><th class="py-3 px-4 text-left">Nama</th><th class="py-3 px-4 text-center">Status</th></tr></thead><tbody id="preview-data"></tbody></table></div><div class="flex justify-end gap-2"><button id="batal-preview" class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded-lg">Batal</button><button id="konfirmasi-import" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg">Konfirmasi Import</button></div></div></div>
+    <div id="modal-tambah-siswa" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"><div class="bg-white rounded-lg p-6 w-full max-w-md"><h2 class="text-xl font-bold mb-4">Tambah Siswa Baru</h2><div class="mb-4"><label class="block text-gray-700 mb-2">NISN</label><input type="text" id="new-nisn" class="w-full p-2 border rounded-md"></div><div class="mb-4"><label class="block text-gray-700 mb-2">Nama</label><input type="text" id="new-nama" class="w-full p-2 border rounded-md"></div><div class="mb-4"><label class="block text-gray-700 mb-2">Kelas</label><select id="new-kelas" class="w-full p-2 border rounded-md"><option value="">Pilih Kelas</option></select></div><div class="flex justify-end gap-2"><button id="batal-tambah" class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded-lg">Batal</button><button id="simpan-tambah" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg">Simpan</button></div></div></div>
+    <div id="modal-edit-siswa" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"><div class="bg-white rounded-lg p-6 w-full max-w-md"><h2 class="text-xl font-bold mb-4">Edit Siswa</h2><div class="mb-4"><label class="block text-gray-700 mb-2">NISN</label><input type="text" id="edit-nisn" class="w-full p-2 border rounded-md"></div><div class="mb-4"><label class="block text-gray-700 mb-2">Nama</label><input type="text" id="edit-nama" class="w-full p-2 border rounded-md"></div><div class="mb-4"><label class="block text-gray-700 mb-2">Kelas</label><select id="edit-kelas-select" class="w-full p-2 border rounded-md"><option value="">Pilih Kelas</option></select></div><input type="hidden" id="edit-siswa-id"><div class="flex justify-end gap-2"><button id="batal-edit" class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded-lg">Batal</button><button id="simpan-edit" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg">Simpan</button></div></div></div>
+    <div id="modal-tambah-kelas" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"><div class="bg-white rounded-lg p-6 w-full max-w-md"><h2 class="text-xl font-bold mb-4">Tambah Kelas Baru</h2><div class="mb-4"><label class="block text-gray-700 mb-2">Nama Kelas</label><input type="text" id="new-nama-kelas" class="w-full p-2 border rounded-md" placeholder="Contoh: X RPL 1"></div><div class="mb-4"><label class="block text-gray-700 mb-2">Wali Kelas</label><input type="text" id="new-wali-kelas" class="w-full p-2 border rounded-md"></div><div class="flex justify-end gap-2"><button id="batal-tambah-kelas" class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded-lg">Batal</button><button id="simpan-tambah-kelas" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg">Simpan</button></div></div></div>
+    <div id="modal-edit-kelas" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"><div class="bg-white rounded-lg p-6 w-full max-w-md"><h2 class="text-xl font-bold mb-4">Edit Kelas</h2><div class="mb-4"><label class="block text-gray-700 mb-2">Nama Kelas</label><input type="text" id="edit-nama-kelas" class="w-full p-2 border rounded-md"></div><div class="mb-4"><label class="block text-gray-700 mb-2">Wali Kelas</label><input type="text" id="edit-wali-kelas" class="w-full p-2 border rounded-md"></div><input type="hidden" id="edit-kelas-id"><div class="flex justify-end gap-2"><button id="batal-edit-kelas" class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded-lg">Batal</button><button id="simpan-edit-kelas" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg">Simpan</button></div></div></div>
+    <div id="modal-import-siswa" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"><div class="bg-white rounded-lg p-6 w-full max-w-md"><h2 class="text-xl font-bold mb-4">Import Siswa</h2><div class="mb-4"><p class="text-gray-600 mb-2">Upload file Excel (.xlsx) atau CSV.</p><p class="text-gray-600 mb-4">Format: Kolom pertama NISN, Kolom kedua Nama Siswa.</p><label class="block w-full p-3 border-2 border-dashed rounded-lg text-center cursor-pointer hover:bg-indigo-50"><span class="text-indigo-600 font-medium">Pilih File</span><input type="file" id="file-import" class="hidden" accept=".xlsx,.xls,.csv"></label><p id="selected-file" class="mt-2 text-sm text-gray-500">Belum ada file yang dipilih</p></div><div class="flex justify-end gap-2"><button id="batal-import" class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded-lg">Batal</button><button id="proses-import" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg">Import</button></div></div></div>
+    <div id="modal-preview-import" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"><div class="bg-white rounded-lg p-6 w-full max-w-4xl max-h-[80vh] overflow-y-auto"><h2 class="text-xl font-bold mb-4">Preview Data Import</h2><p class="text-gray-600 mb-4">Data berikut akan diimport ke kelas <span id="preview-nama-kelas" class="font-medium"></span>.</p><div class="overflow-x-auto mb-4"><table class="min-w-full bg-white border"><thead><tr class="bg-indigo-600 text-white"><th class="py-3 px-4 text-left">No</th><th class="py-3 px-4 text-left">NISN</th><th class="py-3 px-4 text-left">Nama</th><th class="py-3 px-4 text-center">Status</th></tr></thead><tbody id="preview-data"></tbody></table></div><div class="flex justify-end gap-2"><button id="batal-preview" class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded-lg">Batal</button><button id="konfirmasi-import" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg">Konfirmasi Import</button></div></div></div>
 
     <script>
         // Data
@@ -124,10 +115,9 @@
         function showNotification(message, type = 'success') {
             const notification = document.getElementById('notification');
             notification.textContent = message;
-            notification.className = 'notification fixed top-4 right-4 text-white px-6 py-3 rounded-lg shadow-lg z-50'; // Reset
-            if (type === 'info') notification.classList.add('bg-blue-500');
-            else if(type === 'error') notification.classList.add('bg-red-500');
-            else notification.classList.add('bg-green-500');
+            notification.className = 'notification fixed top-4 right-4 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+            const colors = { success: 'bg-green-500', info: 'bg-blue-500', error: 'bg-red-500' };
+            notification.classList.add(colors[type] || 'bg-green-500');
             notification.classList.add('show');
             setTimeout(() => { notification.classList.remove('show'); }, 3000);
         }
@@ -215,7 +205,8 @@
             }
             const siswaMap = new Map();
             const allSiswaInFilter = siswaList.filter(s => {
-                if (!kelasFilter) return true; // Semua siswa jika filter kelas kosong
+                if (!s.kelasId) return false;
+                if (!kelasFilter) return true;
                 return s.kelasId === parseInt(kelasFilter);
             });
 
@@ -268,21 +259,26 @@
             let filteredData = absensiData.filter(data => data.namaSekolah === sekolah);
             if (kelasId) filteredData = filteredData.filter(data => data.kelasId === parseInt(kelasId));
             
+            const headerNilai = document.getElementById('header-nilai');
             if (filter.tanggal) {
-                document.getElementById('header-nilai').textContent = 'Nilai Harian';
+                headerNilai.textContent = 'Nilai Harian';
                 filteredData = filteredData.filter(data => data.tanggal === filter.tanggal);
             } else if (filter.bulan) {
-                document.getElementById('header-nilai').textContent = 'Nilai Rata-Rata';
+                headerNilai.textContent = 'Nilai Rata-Rata';
                 filteredData = filteredData.filter(data => data.tanggal.startsWith(filter.bulan));
             }
 
             if (filteredData.length === 0 || !kelasId) {
-                rekapNilaiBody.innerHTML = `<tr><td colspan="5" class="py-4 text-center text-gray-500">Tidak ada data.</td></tr>`;
+                rekapNilaiBody.innerHTML = `<tr><td colspan="5" class="py-4 text-center text-gray-500">Tidak ada data. Pilih kelas terlebih dahulu.</td></tr>`;
                 return;
             }
             
             const siswaMap = new Map();
-            const allSiswaInFilter = siswaList.filter(s => s.kelasId === parseInt(kelasId));
+            const allSiswaInFilter = siswaList.filter(s => {
+                if (!s.kelasId) return false;
+                if (!kelasId) return true;
+                return s.kelasId === parseInt(kelasId)
+            });
             allSiswaInFilter.forEach(siswa => {
                 siswaMap.set(siswa.id, { nisn: siswa.nisn, nama: siswa.nama, nilai: [], materi: [] });
             });
@@ -306,7 +302,7 @@
                     if (filter.bulan) {
                         nilaiTampil = (siswa.nilai.reduce((a, b) => a + b, 0) / siswa.nilai.length).toFixed(1);
                     } else {
-                        nilaiTampil = siswa.nilai[0]; // Harian hanya ambil nilai pertama
+                        nilaiTampil = siswa.nilai.join(', '); // Show all daily scores if multiple entries on same day for some reason
                     }
                 }
                 const uniqueMateri = [...new Set(siswa.materi)].join('; ');
@@ -314,26 +310,22 @@
                 rekapNilaiBody.appendChild(row);
             });
         }
-        
+
         function renderDaftarKelas(){const e=document.getElementById("daftar-kelas");e.innerHTML="",kelasList.forEach(t=>{const a=document.createElement("div");a.className="bg-white p-4 rounded-lg shadow-md border border-gray-200 hover:border-indigo-500 cursor-pointer transition-all",a.setAttribute("data-id",t.id);const s=siswaList.filter(e=>e.kelasId===t.id).length;a.innerHTML=`<h4 class="text-lg font-medium text-indigo-700">${t.nama}</h4><p class="text-gray-600 mt-1">Wali Kelas: ${t.waliKelas}</p><p class="text-gray-600 mt-1">Jumlah Siswa: ${s}</p>`,e.appendChild(a),a.addEventListener("click",function(){const e=parseInt(this.getAttribute("data-id"));selectedKelasId=e,document.getElementById("detail-kelas").classList.remove("hidden"),document.getElementById("nama-kelas-detail").textContent=t.nama,renderSiswaDalamKelas(e),renderMateriList(e)})})}
         function renderSiswaDalamKelas(e){const t=document.getElementById("siswa-dalam-kelas");if(t.innerHTML="",0===(e=siswaList.filter(t=>t.kelasId===e)).length)return void(t.innerHTML='<tr><td colspan="4" class="py-4 px-4 text-center text-gray-500">Belum ada siswa dalam kelas ini</td></tr>');e.forEach((e,a)=>{const s=document.createElement("tr");s.className=a%2==0?"bg-gray-50":"bg-white",s.innerHTML=`<td class="py-3 px-4">${a+1}</td><td class="py-3 px-4">${e.nisn}</td><td class="py-3 px-4">${e.nama}</td><td class="py-3 px-4 text-center"><button class="edit-siswa-kelas bg-yellow-500 hover:bg-yellow-600 text-white px-2 py-1 rounded mr-1" data-id="${e.id}">Edit</button><button class="hapus-siswa-kelas bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded" data-id="${e.id}">Hapus</button></td>`,t.appendChild(s)}),document.querySelectorAll(".hapus-siswa-kelas").forEach(t=>{t.addEventListener("click",function(){const a=parseInt(this.getAttribute("data-id"));confirm("Apakah Anda yakin ingin menghapus siswa ini?")&&(siswaList=siswaList.filter(e=>e.id!==a),document.getElementById("kelas-budi-agung").classList.contains("bg-indigo-600")?siswaListBudiAgung=siswaListBudiAgung.filter(e=>e.id!==a):siswaListSumbangsih=siswaListSumbangsih.filter(e=>e.id!==a),renderSiswaDalamKelas(e),showNotification("Siswa berhasil dihapus!"))})}),document.querySelectorAll(".edit-siswa-kelas").forEach(e=>{e.addEventListener("click",function(){const t=parseInt(this.getAttribute("data-id")),(e=siswaList.find(e=>e.id===t))&&(document.getElementById("edit-siswa-id").value=e.id,document.getElementById("edit-nisn").value=e.nisn,document.getElementById("edit-nama").value=e.nama,document.getElementById("edit-kelas-select").value=e.kelasId||"",document.getElementById("modal-edit-siswa").classList.remove("hidden"))})})}
         function renderMateriList(e){const t=document.getElementById("daftar-materi");if(t.innerHTML="",!(e=kelasList.find(t=>t.id===e))||!e.materi||0===e.materi.length)return void(t.innerHTML='<p class="text-gray-500 text-center">Belum ada materi untuk kelas ini.</p>');e.materi.forEach((a,s)=>{const l=document.createElement("div");l.className="flex justify-between items-center bg-white p-2 rounded-md shadow-sm",l.innerHTML=`<span class="text-gray-700">${a}</span><button data-index="${s}" class="hapus-materi text-red-500 hover:text-red-700 font-bold">&times;</button>`,t.appendChild(l)}),document.querySelectorAll(".hapus-materi").forEach(t=>{t.addEventListener("click",function(){const a=parseInt(this.getAttribute("data-index"));e.materi.splice(a,1),document.getElementById("kelas-budi-agung").classList.contains("bg-indigo-600")?localStorage.setItem("kelasBudiAgung",JSON.stringify(kelasBudiAgung)):localStorage.setItem("kelasSumbangsih",JSON.stringify(kelasSumbangsih)),renderMateriList(e.id),showNotification("Materi berhasil dihapus!")})})}
         function populateMateriDropdown(e){const t=document.getElementById("pilih-materi");if(t.innerHTML='<option value="">Pilih Materi</option>',!e)return;(e=kelasList.find(t=>t.id===parseInt(e)))&&e.materi&&e.materi.forEach(e=>{const a=document.createElement("option");a.value=e,a.textContent=e,t.appendChild(a)})}
-        function populateKelasDropdown(){[document.getElementById("pilih-kelas"),document.getElementById("filter-kelas"),document.getElementById("new-kelas"),document.getElementById("edit-kelas-select"),document.getElementById("filter-kelas-nilai")].forEach((e,t)=>{const a=0===t||2===t||3===t||4===t?"Pilih Kelas":"Semua Kelas",s=e.value;e.innerHTML=`<option value="">${a}</option>`,kelasList.forEach(t=>{const a=document.createElement("option");a.value=t.id,a.textContent=t.nama,e.appendChild(a)}),e.value=s})}
+        function populateKelasDropdown(){[document.getElementById("pilih-kelas"),document.getElementById("filter-kelas"),document.getElementById("new-kelas"),document.getElementById("edit-kelas-select"),document.getElementById("filter-kelas-nilai")].forEach((e,t)=>{const a=[0,2,3,4].includes(t)?"Pilih Kelas":"Semua Kelas",s=e.value;e.innerHTML=`<option value="">${a}</option>`,kelasList.forEach(t=>{const a=document.createElement("option");a.value=t.id,a.textContent=t.nama,e.appendChild(a)}),e.value=s})}
         function switchSekolah(e){const t=document.getElementById("sekolah-budi-agung"),a=document.getElementById("sekolah-sumbangsih"),s=document.getElementById("kelas-budi-agung"),l=document.getElementById("kelas-sumbangsih");"Budi Agung"===e?(document.getElementById("nama-sekolah").textContent="SMK Pariwisata Budi Agung",document.getElementById("rekap-sekolah").textContent="SMK Pariwisata Budi Agung",document.getElementById("rekap-sekolah-nilai").textContent="SMK Pariwisata Budi Agung",siswaList=[...siswaListBudiAgung],kelasList=[...kelasBudiAgung],t.classList.add("bg-indigo-600","text-white"),t.classList.remove("bg-gray-200","text-gray-700"),a.classList.add("bg-gray-200","text-gray-700"),a.classList.remove("bg-indigo-600","text-white"),s.classList.add("bg-indigo-600","text-white"),s.classList.remove("bg-gray-200","text-gray-700"),l.classList.add("bg-gray-200","text-gray-700"),l.classList.remove("bg-indigo-600","text-white")):(document.getElementById("nama-sekolah").textContent="SMK Pariwisata Sumbangsih",document.getElementById("rekap-sekolah").textContent="SMK Pariwisata Sumbangsih",document.getElementById("rekap-sekolah-nilai").textContent="SMK Pariwisata Sumbangsih",siswaList=[...siswaListSumbangsih],kelasList=[...kelasSumbangsih],a.classList.add("bg-indigo-600","text-white"),a.classList.remove("bg-gray-200","text-gray-700"),t.classList.add("bg-gray-200","text-gray-700"),t.classList.remove("bg-indigo-600","text-white"),l.classList.add("bg-indigo-600","text-white"),l.classList.remove("bg-gray-200","text-gray-700"),s.classList.add("bg-gray-200","text-gray-700"),s.classList.remove("bg-indigo-600","text-white")),populateKelasDropdown(),loadOrClearAbsensi(),renderRekapNilai(),document.getElementById("detail-kelas").classList.add("hidden"),selectedKelasId=null,renderDaftarKelas()}
         function createExcelTemplate(){const e=[["Template Import Siswa"],["Instruksi: Isi data siswa pada kolom di bawah ini. Jangan ubah header kolom."],[],["NISN","Nama Siswa"]];for(let t=0;t<5;t++)e.push(["",""]);const t=XLSX.utils.aoa_to_sheet(e),a=XLSX.utils.book_new();XLSX.utils.book_append_sheet(a,t,"Template"),XLSX.writeFile(a,"Template_Import_Siswa.xlsx")}
         function readExcelFile(e){return new Promise((t,a)=>{const s=new FileReader;s.onload=function(e){try{const s=e.target.result,l=XLSX.read(s,{type:"binary"}),d=l.SheetNames[0],n=l.Sheets[d],i=XLSX.utils.sheet_to_json(n,{header:1});let o=-1;for(let e=0;e<i.length;e++)if(i[e].length>=2&&String(i[e][0]).toUpperCase().includes("NISN")&&String(i[e][1]).toUpperCase().includes("NAMA")){o=e;break}if(-1===o)return void a("Format file tidak valid. Header NISN dan Nama Siswa tidak ditemukan.");const r=[];for(let e=o+1;e<i.length;e++)i[e].length>=2&&i[e][0]&&i[e][1]&&r.push({nisn:String(i[e][0]),nama:String(i[e][1])});t(r)}catch(e){a("Terjadi kesalahan saat membaca file: "+e.message)}},s.onerror=function(){a("Terjadi kesalahan saat membaca file.")},s.readAsBinaryString(e)})}
         function exportRekapNilaiToExcel(){const e=document.getElementById("filter-tanggal-nilai").value,t=document.getElementById("filter-kelas-nilai").value,a=document.getElementById("rekap-sekolah-nilai").textContent;if(!e||!t)return void alert("Pilih tanggal dan kelas untuk ekspor!");const s=absensiData.find(a=>a.tanggal===e&&a.namaSekolah===a.namaSekolah&&a.kelasId===parseInt(t));if(!s)return void alert("Tidak ada data untuk diekspor.");const l=kelasList.find(e=>e.id===parseInt(t))?.nama||"Tidak Diketahui",d=[["Rekap Nilai Harian"],["Sekolah:",a],["Kelas:",l],["Tanggal:",e],[],["No","NISN","Nama","Nilai Harian","Materi"]];s.siswa.forEach((e,t)=>{d.push([t+1,e.nisn,e.nama,e.nilai||"-",e.materi||"-"])});const n=XLSX.utils.aoa_to_sheet(d),i=XLSX.utils.book_new();XLSX.utils.book_append_sheet(i,n,"Rekap Nilai");e=a.includes("Budi Agung")?"BA":"SB";XLSX.writeFile(i,`Rekap_Nilai_${e}_${l.replace(/\s+/g,"_")}_${e}.xlsx`)}
 
-        // Event Listeners
         document.addEventListener('DOMContentLoaded', function() {
             const today = new Date().toISOString().split('T')[0];
-            document.getElementById('tanggal').value = today;
-            document.getElementById('filter-tanggal').value = today;
-            document.getElementById('filter-tanggal-nilai').value = today;
             const currentMonth = today.substring(0, 7);
-            document.getElementById('filter-bulan').value = currentMonth;
-            document.getElementById('filter-bulan-nilai').value = currentMonth;
+            ['tanggal', 'filter-tanggal', 'filter-tanggal-nilai'].forEach(id => document.getElementById(id).value = today);
+            ['filter-bulan', 'filter-bulan-nilai'].forEach(id => document.getElementById(id).value = currentMonth);
             
             absensiData = JSON.parse(localStorage.getItem('absensiData') || '[]');
             siswaListBudiAgung = JSON.parse(localStorage.getItem('siswaListBudiAgung')) || siswaListBudiAgung;
@@ -341,45 +333,33 @@
             kelasBudiAgung = JSON.parse(localStorage.getItem('kelasBudiAgung')) || kelasBudiAgung;
             kelasSumbangsih = JSON.parse(localStorage.getItem('kelasSumbangsih')) || kelasSumbangsih;
 
-            siswaList = [...siswaListBudiAgung];
-            kelasList = [...kelasBudiAgung];
-            
-            populateKelasDropdown();
-            renderDaftarSiswa();
-            renderDaftarKelas();
-            renderRekapNilai({tanggal: today}); 
+            switchSekolah('Budi Agung'); // Initialize with a default school
             
             document.getElementById('tanggal').addEventListener('change', loadOrClearAbsensi);
             document.getElementById('pilih-kelas').addEventListener('change', loadOrClearAbsensi);
             document.getElementById('pilih-materi').addEventListener('change', function() {
                 document.querySelectorAll('.materi-siswa-input').forEach(input => { input.value = this.value; });
             });
-
-            // Rekap Absensi Listeners
             document.getElementById('filter-tanggal').addEventListener('change', function() { renderRekapAbsensi({ tanggal: this.value }); });
             document.getElementById('filter-bulan').addEventListener('change', function() { renderRekapAbsensi({ bulan: this.value }); });
             document.getElementById('filter-kelas').addEventListener('change', function() {
-                if (document.getElementById('filter-harian').classList.contains('hidden')) renderRekapAbsensi({ bulan: document.getElementById('filter-bulan').value });
+                if (document.getElementById('rekap-bulanan-btn').classList.contains('bg-indigo-600')) renderRekapAbsensi({ bulan: document.getElementById('filter-bulan').value });
                 else renderRekapAbsensi({ tanggal: document.getElementById('filter-tanggal').value });
             });
-
-            // Rekap Nilai Listeners
             document.getElementById('filter-tanggal-nilai').addEventListener('change', function() { renderRekapNilai({ tanggal: this.value }); });
             document.getElementById('filter-bulan-nilai').addEventListener('change', function() { renderRekapNilai({ bulan: this.value }); });
             document.getElementById('filter-kelas-nilai').addEventListener('change', function(){
-                if(document.getElementById('filter-nilai-harian').classList.contains('hidden')) renderRekapNilai({ bulan: document.getElementById('filter-bulan-nilai').value });
+                if(document.getElementById('rekap-nilai-bulanan-btn').classList.contains('bg-indigo-600')) renderRekapNilai({ bulan: document.getElementById('filter-bulan-nilai').value });
                 else renderRekapNilai({ tanggal: document.getElementById('filter-tanggal-nilai').value });
             });
 
-            // Uncheck Radio Button
             const daftarSiswaTbody = document.getElementById('daftar-siswa');
-            daftarSiswaTbody.addEventListener('mousedown', function(e) { if (e.target.type === 'radio' && e.target.checked) e.target.dataset.wasChecked = 'true'; });
-            daftarSiswaTbody.addEventListener('click', function(e) {
+            daftarSiswaTbody.addEventListener('mousedown', e => { if (e.target.type === 'radio' && e.target.checked) e.target.dataset.wasChecked = 'true'; });
+            daftarSiswaTbody.addEventListener('click', e => {
                 if (e.target.type === 'radio' && e.target.dataset.wasChecked === 'true') { e.target.checked = false; e.target.dataset.wasChecked = 'false'; } 
                 else if (e.target.type === 'radio') { document.getElementsByName(e.target.name).forEach(radio => { if (radio !== e.target) radio.dataset.wasChecked = 'false'; }); }
             });
 
-            // Manajemen Materi
             document.getElementById('tambah-materi').addEventListener('click', function() {
                 if (!selectedKelasId) return;
                 const input = document.getElementById('input-materi-baru'); const materiBaru = input.value.trim();
@@ -397,14 +377,13 @@
                 }
             });
 
-            // Switch Sekolah
             document.getElementById('sekolah-budi-agung').addEventListener('click', () => switchSekolah('Budi Agung'));
             document.getElementById('sekolah-sumbangsih').addEventListener('click', () => switchSekolah('Sumbangsih'));
             document.getElementById('kelas-budi-agung').addEventListener('click', () => switchSekolah('Budi Agung'));
             document.getElementById('kelas-sumbangsih').addEventListener('click', () => switchSekolah('Sumbangsih'));
 
-            // Tab Switching
             const tabs = {'tab1-btn': 'tab1', 'tab2-btn': 'tab2', 'tab3-btn': 'tab3', 'tab4-btn': 'tab4'};
+            const mainContent = document.querySelector('.container').parentElement;
             Object.keys(tabs).forEach(btnId => {
                 document.getElementById(btnId).addEventListener('click', function() {
                     Object.keys(tabs).forEach(b => {
@@ -412,56 +391,55 @@
                         document.getElementById(tabs[b]).classList.add('hidden');
                     });
                     this.classList.replace('tab-inactive', 'tab-active');
-                    document.getElementById(tabs[btnId]).classList.remove('hidden');
+                    const activeTab = document.getElementById(tabs[btnId]);
+                    activeTab.classList.remove('hidden');
+
+                    document.querySelectorAll('.print-area').forEach(el => el.classList.remove('print-area'));
+                    if (btnId === 'tab2-btn' || btnId === 'tab4-btn') {
+                        mainContent.classList.add('print-area');
+                    } else {
+                        mainContent.classList.remove('print-area');
+                    }
+
                     if (btnId === 'tab2-btn') renderRekapAbsensi({ tanggal: document.getElementById('filter-tanggal').value });
                     if (btnId === 'tab3-btn') renderDaftarKelas();
                     if (btnId === 'tab4-btn') renderRekapNilai({ tanggal: document.getElementById('filter-tanggal-nilai').value });
                 });
             });
 
-            // Rekap Buttons
-            document.getElementById('rekap-harian-btn').addEventListener('click', function() {
-                this.classList.replace('bg-gray-200', 'bg-indigo-600'); this.classList.replace('text-gray-700', 'text-white');
-                document.getElementById('rekap-bulanan-btn').classList.replace('bg-indigo-600', 'bg-gray-200'); document.getElementById('rekap-bulanan-btn').classList.replace('text-white', 'text-gray-700');
-                document.getElementById('filter-harian').classList.remove('hidden'); document.getElementById('filter-bulanan').classList.add('hidden');
-                renderRekapAbsensi({ tanggal: document.getElementById('filter-tanggal').value });
-            });
-            document.getElementById('rekap-bulanan-btn').addEventListener('click', function() {
-                this.classList.replace('bg-gray-200', 'bg-indigo-600'); this.classList.replace('text-gray-700', 'text-white');
-                document.getElementById('rekap-harian-btn').classList.replace('bg-indigo-600', 'bg-gray-200'); document.getElementById('rekap-harian-btn').classList.replace('text-white', 'text-gray-700');
-                document.getElementById('filter-harian').classList.add('hidden'); document.getElementById('filter-bulanan').classList.remove('hidden');
-                renderRekapAbsensi({ bulan: document.getElementById('filter-bulan').value });
-            });
-            document.getElementById('rekap-nilai-harian-btn').addEventListener('click', function() {
-                this.classList.replace('bg-gray-200', 'bg-indigo-600'); this.classList.replace('text-gray-700', 'text-white');
-                document.getElementById('rekap-nilai-bulanan-btn').classList.replace('bg-indigo-600', 'bg-gray-200'); document.getElementById('rekap-nilai-bulanan-btn').classList.replace('text-white', 'text-gray-700');
-                document.getElementById('filter-nilai-harian').classList.remove('hidden'); document.getElementById('filter-nilai-bulanan').classList.add('hidden');
-                renderRekapNilai({ tanggal: document.getElementById('filter-tanggal-nilai').value });
-            });
-            document.getElementById('rekap-nilai-bulanan-btn').addEventListener('click', function() {
-                this.classList.replace('bg-gray-200', 'bg-indigo-600'); this.classList.replace('text-gray-700', 'text-white');
-                document.getElementById('rekap-nilai-harian-btn').classList.replace('bg-indigo-600', 'bg-gray-200'); document.getElementById('rekap-nilai-harian-btn').classList.replace('text-white', 'text-gray-700');
-                document.getElementById('filter-nilai-harian').classList.add('hidden'); document.getElementById('filter-nilai-bulanan').classList.remove('hidden');
-                renderRekapNilai({ bulan: document.getElementById('filter-bulan-nilai').value });
+            const toggleRekapButtons = (activeBtn, inactiveBtn, harianDiv, bulananDiv, renderFn, filter) => {
+                activeBtn.classList.replace('bg-gray-200', 'bg-indigo-600'); activeBtn.classList.replace('text-gray-700', 'text-white');
+                inactiveBtn.classList.replace('bg-indigo-600', 'bg-gray-200'); inactiveBtn.classList.replace('text-white', 'text-gray-700');
+                document.getElementById(harianDiv).classList.toggle('hidden', !filter.tanggal);
+                document.getElementById(bulananDiv).classList.toggle('hidden', !filter.bulan);
+                renderFn(filter);
+            };
+
+            document.getElementById('rekap-harian-btn').addEventListener('click', function(){ toggleRekapButtons(this, document.getElementById('rekap-bulanan-btn'), 'filter-harian', 'filter-bulanan', renderRekapAbsensi, {tanggal: document.getElementById('filter-tanggal').value})});
+            document.getElementById('rekap-bulanan-btn').addEventListener('click', function(){ toggleRekapButtons(this, document.getElementById('rekap-harian-btn'), 'filter-harian', 'filter-bulanan', renderRekapAbsensi, {bulan: document.getElementById('filter-bulan').value})});
+            document.getElementById('rekap-nilai-harian-btn').addEventListener('click', function(){ toggleRekapButtons(this, document.getElementById('rekap-nilai-bulanan-btn'), 'filter-nilai-harian', 'filter-nilai-bulanan', renderRekapNilai, {tanggal: document.getElementById('filter-tanggal-nilai').value})});
+            document.getElementById('rekap-nilai-bulanan-btn').addEventListener('click', function(){ toggleRekapButtons(this, document.getElementById('rekap-nilai-harian-btn'), 'filter-nilai-harian', 'filter-nilai-bulanan', renderRekapNilai, {bulan: document.getElementById('filter-bulan-nilai').value})});
+
+            document.getElementById('hadir-semua').addEventListener('click', function() {
+                if (!document.getElementById('pilih-kelas').value) return alert("Pilih kelas terlebih dahulu!");
+                document.querySelectorAll(`input[name^="status-"]`).forEach(radio => { if (radio.value === 'hadir') radio.checked = true; });
             });
 
-            // Action Buttons
-            document.getElementById('hadir-semua').addEventListener('click', function() {
-                const kelasId = document.getElementById('pilih-kelas').value;
-                if (!kelasId) { alert("Pilih kelas terlebih dahulu!"); return; }
-                document.querySelectorAll(`input[name^="status-"]`).forEach(radio => {
-                    if (radio.value === 'hadir') radio.checked = true;
-                });
-            });
             document.getElementById('bersihkan-absen').addEventListener('click', function() {
-                const kelasId = document.getElementById('pilih-kelas').value;
-                if (!kelasId) { alert("Pilih kelas terlebih dahulu!"); return; }
+                const kelasIdValue = document.getElementById('pilih-kelas').value;
+                if (!kelasIdValue) { alert("Pilih kelas terlebih dahulu!"); return; }
                 if (confirm('Apakah Anda yakin ingin membersihkan semua input absensi di tabel ini?')) {
-                    document.querySelectorAll(`input[name^="status-"]`).forEach(radio => radio.checked = false);
-                    document.querySelectorAll('.nilai-siswa-input, .materi-siswa-input').forEach(input => input.value = '');
-                    showNotification('Absensi telah dibersihkan.', 'info');
+                    const kelasId = parseInt(kelasIdValue);
+                    siswaList.forEach(siswa => {
+                        if (siswa.kelasId === kelasId) {
+                            siswa.status = ''; siswa.nilai = ''; siswa.materi = '';
+                        }
+                    });
+                    renderDaftarSiswa();
+                    showNotification('Formulir absensi telah dibersihkan.', 'info');
                 }
             });
+
             document.getElementById('simpan-absen').addEventListener('click', function() {
                 const tanggal = document.getElementById('tanggal').value; const namaSekolah = document.getElementById('nama-sekolah').textContent; const kelasId = parseInt(document.getElementById('pilih-kelas').value) || null;
                 if (!tanggal || !kelasId) { alert('Tanggal dan Kelas harus dipilih!'); return; }
@@ -486,11 +464,9 @@
                 showNotification('Absen berhasil disimpan!');
             });
             
-            // Print Buttons
             document.getElementById('cetak-rekap').addEventListener('click', () => window.print());
             document.getElementById('cetak-rekap-nilai').addEventListener('click', () => window.print());
 
-            // Export & Import (sisanya)
             document.getElementById('ekspor-rekap-nilai').addEventListener('click', exportRekapNilaiToExcel);
             document.getElementById("tambah-siswa").addEventListener("click",function(){populateKelasDropdown(),document.getElementById("modal-tambah-siswa").classList.remove("hidden")});document.getElementById("tambah-siswa-kelas").addEventListener("click",function(){document.getElementById("new-kelas").value=selectedKelasId,document.getElementById("modal-tambah-siswa").classList.remove("hidden")});document.getElementById("batal-tambah").addEventListener("click",function(){document.getElementById("modal-tambah-siswa").classList.add("hidden"),document.getElementById("new-nisn").value="",document.getElementById("new-nama").value="",document.getElementById("new-kelas").value=""});document.getElementById("simpan-tambah").addEventListener("click",function(){const e=document.getElementById("new-nisn").value.trim(),t=document.getElementById("new-nama").value.trim(),a=parseInt(document.getElementById("new-kelas").value)||null;if(!e||!t||!a)return void alert("NISN, Nama, dan Kelas harus diisi!");const s=document.getElementById("nama-sekolah").textContent.includes("Budi Agung")?siswaListBudiAgung:siswaListSumbangsih;if(s.some(t=>t.nisn===e))return void alert("NISN sudah terdaftar!");const l=[...siswaListBudiAgung,...siswaListSumbangsih].length>0?Math.max(...[...siswaListBudiAgung,...siswaListSumbangsih].map(e=>e.id))+1:1,d={id:l,nisn:e,nama:t,status:"",nilai:"",materi:"",kelasId:a};document.getElementById("nama-sekolah").textContent.includes("Budi Agung")?(siswaListBudiAgung.push(d),siswaList=[...siswaListBudiAgung]):(siswaListSumbangsih.push(d),siswaList=[...siswaListSumbangsih]),localStorage.setItem("siswaListBudiAgung",JSON.stringify(siswaListBudiAgung)),localStorage.setItem("siswaListSumbangsih",JSON.stringify(siswaListSumbangsih)),renderDaftarSiswa(),selectedKelasId&&renderSiswaDalamKelas(selectedKelasId),document.getElementById("modal-tambah-siswa").classList.add("hidden"),document.getElementById("new-nisn").value="",document.getElementById("new-nama").value="",document.getElementById("new-kelas").value="",showNotification("Siswa baru berhasil ditambahkan!")});document.getElementById("batal-edit").addEventListener("click",function(){document.getElementById("modal-edit-siswa").classList.add("hidden")});document.getElementById("simpan-edit").addEventListener("click",function(){const e=parseInt(document.getElementById("edit-siswa-id").value),t=document.getElementById("edit-nisn").value.trim(),a=document.getElementById("edit-nama").value.trim(),s=parseInt(document.getElementById("edit-kelas-select").value)||null;if(!t||!a||!s)return void alert("NISN, Nama, dan Kelas harus diisi!");if([...siswaListBudiAgung,...siswaListSumbangsih].some(t=>t.nisn===t.nisn&&t.id!==e))return void alert("NISN sudah terdaftar!");let l=siswaListBudiAgung.find(t=>t.id===e)||siswaListSumbangsih.find(t=>t.id===e);l&&(l.nisn=t,l.nama=a,l.kelasId=s),localStorage.setItem("siswaListBudiAgung",JSON.stringify(siswaListBudiAgung)),localStorage.setItem("siswaListSumbangsih",JSON.stringify(siswaListSumbangsih)),switchSekolah(document.getElementById("nama-sekolah").textContent.includes("Budi Agung")?"Budi Agung":"Sumbangsih"),document.getElementById("modal-edit-siswa").classList.add("hidden"),showNotification("Data siswa berhasil diperbarui!")});document.getElementById("tambah-kelas").addEventListener("click",function(){document.getElementById("modal-tambah-kelas").classList.remove("hidden")});document.getElementById("batal-tambah-kelas").addEventListener("click",function(){document.getElementById("modal-tambah-kelas").classList.add("hidden"),document.getElementById("new-nama-kelas").value="",document.getElementById("new-wali-kelas").value=""});document.getElementById("simpan-tambah-kelas").addEventListener("click",function(){const e=document.getElementById("new-nama-kelas").value.trim(),t=document.getElementById("new-wali-kelas").value.trim();if(!e||!t)return void alert("Nama Kelas dan Wali Kelas harus diisi!");if(kelasList.some(t=>t.nama===e))return void alert("Nama Kelas sudah terdaftar!");const a=[...kelasBudiAgung,...kelasSumbangsih].length>0?Math.max(...[...kelasBudiAgung,...kelasSumbangsih].map(e=>e.id))+1:1,s={id:a,nama:e,waliKelas:t,materi:[]};document.getElementById("kelas-budi-agung").classList.contains("bg-indigo-600")?(kelasBudiAgung.push(s),kelasList=[...kelasBudiAgung],localStorage.setItem("kelasBudiAgung",JSON.stringify(kelasBudiAgung))):(kelasSumbangsih.push(s),kelasList=[...kelasSumbangsih],localStorage.setItem("kelasSumbangsih",JSON.stringify(kelasSumbangsih))),populateKelasDropdown(),renderDaftarKelas(),document.getElementById("modal-tambah-kelas").classList.add("hidden"),document.getElementById("new-nama-kelas").value="",document.getElementById("new-wali-kelas").value="",showNotification("Kelas baru berhasil ditambahkan!")});document.getElementById("edit-kelas").addEventListener("click",function(){if(selectedKelasId){const e=kelasList.find(e=>e.id===selectedKelasId);e&&(document.getElementById("edit-kelas-id").value=e.id,document.getElementById("edit-nama-kelas").value=e.nama,document.getElementById("edit-wali-kelas").value=e.waliKelas,document.getElementById("modal-edit-kelas").classList.remove("hidden"))}});document.getElementById("batal-edit-kelas").addEventListener("click",function(){document.getElementById("modal-edit-kelas").classList.add("hidden")});document.getElementById("simpan-edit-kelas").addEventListener("click",function(){const e=parseInt(document.getElementById("edit-kelas-id").value),t=document.getElementById("edit-nama-kelas").value.trim(),a=document.getElementById("edit-wali-kelas").value.trim();if(!t||!a)return void alert("Nama Kelas dan Wali Kelas harus diisi!");if(kelasList.some(a=>a.nama===t&&a.id!==e))return void alert("Nama Kelas sudah terdaftar!");const s=kelasList.find(t=>t.id===e);s&&(s.nama=t,s.waliKelas=a),document.getElementById("kelas-budi-agung").classList.contains("bg-indigo-600")?localStorage.setItem("kelasBudiAgung",JSON.stringify(kelasBudiAgung)):localStorage.setItem("kelasSumbangsih",JSON.stringify(kelasSumbangsih)),populateKelasDropdown(),renderDaftarKelas(),document.getElementById("nama-kelas-detail").textContent=t,document.getElementById("modal-edit-kelas").classList.add("hidden"),showNotification("Data kelas berhasil diperbarui!")});document.getElementById("hapus-kelas").addEventListener("click",function(){selectedKelasId&&confirm("Apakah Anda yakin ingin menghapus kelas ini? Semua siswa dalam kelas ini juga akan terhapus.")&&(document.getElementById("kelas-budi-agung").classList.contains("bg-indigo-600")?(kelasBudiAgung=kelasBudiAgung.filter(e=>e.id!==selectedKelasId),siswaListBudiAgung=siswaListBudiAgung.filter(e=>e.kelasId!==selectedKelasId),kelasList=[...kelasBudiAgung],siswaList=[...siswaListBudiAgung],localStorage.setItem("kelasBudiAgung",JSON.stringify(kelasBudiAgung)),localStorage.setItem("siswaListBudiAgung",JSON.stringify(siswaListBudiAgung))):(kelasSumbangsih=kelasSumbangsih.filter(e=>e.id!==selectedKelasId),siswaListSumbangsih=siswaListSumbangsih.filter(e=>e.kelasId!==selectedKelasId),kelasList=[...kelasSumbangsih],siswaList=[...siswaListSumbangsih],localStorage.setItem("kelasSumbangsih",JSON.stringify(kelasSumbangsih)),localStorage.setItem("siswaListSumbangsih",JSON.stringify(siswaListSumbangsih))),populateKelasDropdown(),renderDaftarKelas(),document.getElementById("detail-kelas").classList.add("hidden"),selectedKelasId=null,showNotification("Kelas dan siswa di dalamnya berhasil dihapus!"))});document.getElementById("ekspor-excel").addEventListener("click",function(){const e=document.getElementById("tanggal").value,t=document.getElementById("nama-sekolah").textContent,a=parseInt(document.getElementById("pilih-kelas").value)||null,s=document.getElementById("pilih-materi").value;if(!a)return void alert("Pilih kelas terlebih dahulu untuk ekspor!");const l=kelasList.find(e=>e.id===a)?.nama||"Tidak Diketahui",d=siswaList.filter(e=>e.kelasId===a),n=[["Absensi Siswa"],["Sekolah:",t],["Guru:",document.getElementById("nama-guru").textContent],["Mata Pelajaran:",document.getElementById("mata-pelajaran").textContent],["Kelas:",l],["Tanggal:",e],["Materi:",s],[],["No","NISN","Nama","Hadir","Izin","Sakit","Absen","Nilai","Materi"]];d.forEach((e,t)=>{n.push([t+1,e.nisn,e.nama,"hadir"===e.status?"✓":"","izin"===e.status?"✓":"","sakit"===e.status?"✓":"","absen"===e.status?"✓":"",e.nilai||"",e.materi||""])});const i=XLSX.utils.aoa_to_sheet(n),o=XLSX.utils.book_new();XLSX.utils.book_append_sheet(o,i,"Absensi");const r=t.includes("Budi Agung")?"BA":"SB",c=l.replace(/\s+/g,"_");XLSX.writeFile(o,`Absensi_${r}_${c}_${e}.xlsx`)});document.getElementById("ekspor-rekap").addEventListener("click",function(){const e=document.getElementById("rekap-sekolah").textContent,t=document.getElementById("filter-kelas").value;let a="Semua Kelas";if(t){const e=kelasList.find(e=>e.id===parseInt(t));e&&(a=e.nama)}let s,l;document.getElementById("filter-harian").classList.contains("hidden")?(l=document.getElementById("filter-bulan").value,s=`Rekap Bulanan - ${l}`):(l=document.getElementById("filter-tanggal").value,s=`Rekap Harian - ${l}`);const d=[[s],["Sekolah:",e],["Kelas:",a],["Mata Pelajaran:",document.getElementById("rekap-mapel").textContent],[],["No","NISN","Nama","Hadir","Izin","Sakit","Absen","Nilai Rata-rata","Materi"]];document.getElementById("rekap-siswa").querySelectorAll("tr").forEach(e=>{const t=e.querySelectorAll("td");t.length>1&&d.push(Array.from(t).map(e=>e.textContent))}),d.push([]),d.push(["Statistik:"]),d.push(["Total Hadir:",document.getElementById("total-hadir").textContent]),d.push(["Total Izin:",document.getElementById("total-izin").textContent]),d.push(["Total Sakit:",document.getElementById("total-sakit").textContent]),d.push(["Total Absen:",document.getElementById("total-absen").textContent]),d.push(["Nilai Rata-rata:",document.getElementById("total-nilai").textContent]);const n=XLSX.utils.aoa_to_sheet(d),i=XLSX.utils.book_new();XLSX.utils.book_append_sheet(i,n,"Rekap Absensi");const o=e.includes("Budi Agung")?"BA":"SB",r=a.replace(/\s+/g,"_");XLSX.writeFile(i,`Rekap_Absensi_${o}_${r}_${l}.xlsx`)});document.getElementById("import-siswa").addEventListener("click",function(){document.getElementById("file-import").value="",document.getElementById("selected-file").textContent="Belum ada file yang dipilih",document.getElementById("modal-import-siswa").classList.remove("hidden")});document.getElementById("batal-import").addEventListener("click",function(){document.getElementById("modal-import-siswa").classList.add("hidden")});document.getElementById("proses-import").addEventListener("click",function(){const e=document.getElementById("file-import");if(!e.files||0===e.files.length)return void alert("Pilih file terlebih dahulu!");const t=e.files[0];readExcelFile(t).then(e=>{if(0===e.length)return void alert("File tidak berisi data siswa.");importData=e;const t=document.getElementById("preview-data");t.innerHTML="";const a=kelasList.find(e=>e.id===selectedKelasId);document.getElementById("preview-nama-kelas").textContent=a?a.nama:"";const s=document.getElementById("kelas-budi-agung").classList.contains("bg-indigo-600")?siswaListBudiAgung:siswaListSumbangsih,l=s.map(e=>e.nisn);e.forEach((e,a)=>{const s=document.createElement("tr");s.className=a%2==0?"bg-gray-50":"bg-white";a=l.includes(e.nisn);s.innerHTML=`<td class="py-3 px-4">${a+1}</td><td class="py-3 px-4">${e.nisn}</td><td class="py-3 px-4">${e.nama}</td><td class="py-3 px-4 text-center">${a?'<span class="text-red-500 font-medium">NISN sudah ada</span>':'<span class="text-green-500 font-medium">Baru</span>'}</td>`,t.appendChild(s)}),document.getElementById("modal-import-siswa").classList.add("hidden"),document.getElementById("modal-preview-import").classList.remove("hidden")}).catch(e=>{alert(e)})});document.getElementById("batal-preview").addEventListener("click",function(){document.getElementById("modal-preview-import").classList.add("hidden")});document.getElementById("konfirmasi-import").addEventListener("click",function(){if(!selectedKelasId||0===importData.length)return void alert("Tidak ada data yang dapat diimport.");const e=document.getElementById("kelas-budi-agung").classList.contains("bg-indigo-600"),t=e?siswaListBudiAgung:siswaListSumbangsih,a=t.map(e=>e.nisn);let s=[...siswaListBudiAgung,...siswaListSumbangsih].length>0?Math.max(...[...siswaListBudiAgung,...siswaListSumbangsih].map(e=>e.id)):0;let l=0,d=0;importData.forEach(e=>{a.includes(e.nisn)?d++:(s++,t.push({id:s,nisn:e.nisn,nama:e.nama,status:"",nilai:"",materi:"",kelasId:selectedKelasId}),l++)}),e?(localStorage.setItem("siswaListBudiAgung",JSON.stringify(siswaListBudiAgung)),siswaList=[...siswaListBudiAgung]):(localStorage.setItem("siswaListSumbangsih",JSON.stringify(siswaListSumbangsih)),siswaList=[...siswaListSumbangsih]),renderSiswaDalamKelas(selectedKelasId),document.getElementById("modal-preview-import").classList.add("hidden"),showNotification(`${l} siswa berhasil ditambahkan. ${d} siswa diabaikan karena NISN duplikat.`)});document.getElementById("export-template").addEventListener("click",function(){createExcelTemplate()});
         });
