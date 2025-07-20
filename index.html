@@ -32,7 +32,6 @@
     </div>
 
     <div class="container mx-auto px-4 py-8 max-w-6xl">
-        <!-- Header -->
         <div class="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg shadow-lg p-6 mb-8">
             <h1 class="text-3xl font-bold text-white text-center mb-4">Aplikasi Absensi Digital</h1>
             
@@ -51,7 +50,6 @@
             </div>
         </div>
 
-        <!-- Tab 1: Absensi -->
         <div id="content1" class="bg-white rounded-lg shadow-lg p-6 mb-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
@@ -62,16 +60,14 @@
                     <div class="mb-4">
                         <label class="block text-gray-700 font-medium mb-2">Mata Pelajaran</label>
                         <select id="mataPelajaran" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                            <!-- Opsi materi akan ditampilkan di sini -->
-                        </select>
+                            </select>
                     </div>
                 </div>
                 <div>
                     <div class="mb-4">
                         <label class="block text-gray-700 font-medium mb-2">Kelas</label>
                         <select id="kelas" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                            <!-- Opsi kelas akan ditampilkan di sini -->
-                        </select>
+                            </select>
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 font-medium mb-2">Tanggal</label>
@@ -118,8 +114,7 @@
                         </tr>
                     </thead>
                     <tbody id="studentTableBody">
-                        <!-- Data siswa akan ditampilkan di sini -->
-                    </tbody>
+                        </tbody>
                 </table>
             </div>
             
@@ -133,9 +128,8 @@
             </div>
         </div>
 
-        <!-- Tab 2: Rekapitulasi -->
         <div id="content2" class="bg-white rounded-lg shadow-lg p-6 mb-8 hidden">
-            <div class="flex flex-wrap gap-4 mb-6">
+            <div class="flex flex-wrap gap-4 mb-6 items-end">
                 <div>
                     <label class="block text-gray-700 font-medium mb-2">Pilih Jenis Rekap</label>
                     <div class="flex space-x-4">
@@ -151,7 +145,12 @@
                     <label class="block text-gray-700 font-medium mb-2">Pilih Bulan</label>
                     <input type="month" id="bulanRekap" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
                 </div>
-                <div class="flex items-end">
+                <div>
+                    <label class="block text-gray-700 font-medium mb-2">Pilih Kelas</label>
+                    <select id="rekapKelasFilter" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </select>
+                </div>
+                <div>
                     <button id="btnCetakRekap" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium transition-all flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a2 2 0 002 2h6a2 2 0 002-2v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H7a2 2 0 00-2 2zm8 0H7v3h6V4zm0 8H7v4h6v-4z" clip-rule="evenodd" />
@@ -159,7 +158,7 @@
                         Cetak Rekap
                     </button>
                 </div>
-                <div class="flex items-end">
+                <div>
                     <button id="btnExportRekap" class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-lg font-medium transition-all flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clip-rule="evenodd" />
@@ -184,13 +183,11 @@
                         </tr>
                     </thead>
                     <tbody id="rekapTableBody">
-                        <!-- Data rekap akan ditampilkan di sini -->
-                    </tbody>
+                        </tbody>
                 </table>
             </div>
         </div>
         
-        <!-- Tab 4: Rekap Nilai -->
         <div id="content4" class="bg-white rounded-lg shadow-lg p-6 mb-8 hidden">
             <div class="flex flex-wrap gap-4 mb-6">
                 <div>
@@ -212,8 +209,7 @@
                 <div id="rekapNilaiMateriFilter" class="hidden">
                     <label class="block text-gray-700 font-medium mb-2">Pilih Materi</label>
                     <select id="materiRekapNilai" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                        <!-- Opsi materi akan ditampilkan di sini -->
-                    </select>
+                        </select>
                 </div>
                 <div class="flex items-end">
                     <button id="btnExportRekapNilai" class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-lg font-medium transition-all flex items-center">
@@ -238,13 +234,11 @@
                         </tr>
                     </thead>
                     <tbody id="rekapNilaiTableBody">
-                        <!-- Data rekap nilai akan ditampilkan di sini -->
-                    </tbody>
+                        </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- Tab 3: Manajemen -->
         <div id="content3" class="bg-white rounded-lg shadow-lg p-6 mb-8 hidden">
             <div class="flex mb-6 border-b border-gray-200">
                 <button id="tabManajemenKelas" class="px-4 py-2 font-medium text-indigo-600 border-b-2 border-indigo-600">Manajemen Kelas</button>
@@ -252,7 +246,6 @@
                 <button id="tabManajemenSiswa" class="px-4 py-2 font-medium text-gray-500 hover:text-indigo-600">Manajemen Siswa</button>
             </div>
             
-            <!-- Manajemen Kelas -->
             <div id="contentManajemenKelas" class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-white rounded-lg shadow p-6 border border-gray-200">
                     <h3 class="text-lg font-bold text-gray-800 mb-4">Tambah Kelas Baru</h3>
@@ -278,13 +271,11 @@
                     <h3 class="text-lg font-bold text-gray-800 mb-4">Daftar Kelas</h3>
                     <div class="max-h-96 overflow-y-auto">
                         <ul id="daftarKelas" class="divide-y divide-gray-200">
-                            <!-- Daftar kelas akan ditampilkan di sini -->
-                        </ul>
+                            </ul>
                     </div>
                 </div>
             </div>
             
-            <!-- Manajemen Materi -->
             <div id="contentManajemenMateri" class="grid grid-cols-1 md:grid-cols-2 gap-6 hidden">
                 <div class="bg-white rounded-lg shadow p-6 border border-gray-200">
                     <h3 class="text-lg font-bold text-gray-800 mb-4">Tambah Materi Baru</h3>
@@ -307,21 +298,18 @@
                     <h3 class="text-lg font-bold text-gray-800 mb-4">Daftar Materi</h3>
                     <div class="max-h-96 overflow-y-auto">
                         <ul id="daftarMateri" class="divide-y divide-gray-200">
-                            <!-- Daftar materi akan ditampilkan di sini -->
-                        </ul>
+                            </ul>
                     </div>
                 </div>
             </div>
             
-            <!-- Manajemen Siswa -->
             <div id="contentManajemenSiswa" class="grid grid-cols-1 md:grid-cols-2 gap-6 hidden">
                 <div class="bg-white rounded-lg shadow p-6 border border-gray-200">
                     <h3 class="text-lg font-bold text-gray-800 mb-4">Manajemen Siswa</h3>
                     <div class="mb-4">
                         <label class="block text-gray-700 font-medium mb-2">Pilih Kelas</label>
                         <select id="kelasForSiswa" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                            <!-- Opsi kelas akan ditampilkan di sini -->
-                        </select>
+                            </select>
                     </div>
                     <div class="flex space-x-2 mb-4">
                         <button id="btnTambahSiswaManajemen" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-all flex items-center justify-center">
@@ -350,15 +338,13 @@
                     <h3 class="text-lg font-bold text-gray-800 mb-4">Daftar Siswa</h3>
                     <div class="max-h-96 overflow-y-auto">
                         <ul id="daftarSiswaManajemen" class="divide-y divide-gray-200">
-                            <!-- Daftar siswa akan ditampilkan di sini -->
-                        </ul>
+                            </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal Tambah Siswa -->
     <div id="modalTambahSiswa" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
         <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
             <div class="flex justify-between items-center mb-4">
@@ -380,8 +366,7 @@
             <div class="mb-6">
                 <label class="block text-gray-700 font-medium mb-2">Kelas</label>
                 <select id="newKelas" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    <!-- Opsi kelas akan ditampilkan di sini -->
-                </select>
+                    </select>
             </div>
             <div class="flex justify-end">
                 <button id="btnSimpanSiswa" class="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-2 rounded-lg font-medium transition-all">Simpan</button>
@@ -737,59 +722,47 @@
 
         // Update kelas dropdowns
         function updateKelasDropdowns() {
-            const kelasDropdown = document.getElementById('kelas');
-            const newKelasDropdown = document.getElementById('newKelas');
-            const kelasForSiswaDropdown = document.getElementById('kelasForSiswa');
+            const dropdowns = [
+                document.getElementById('kelas'),
+                document.getElementById('newKelas'),
+                document.getElementById('kelasForSiswa'),
+                document.getElementById('rekapKelasFilter')
+            ];
             
-            // Save selected values
-            const selectedKelas = kelasDropdown.value;
-            const selectedNewKelas = newKelasDropdown ? newKelasDropdown.value : '';
-            const selectedKelasForSiswa = kelasForSiswaDropdown.value;
+            const savedValues = dropdowns.map(d => d ? d.value : null);
+
+            dropdowns.forEach(dd => { if (dd) dd.innerHTML = ''; });
             
-            // Clear dropdowns
-            kelasDropdown.innerHTML = '';
-            if (newKelasDropdown) newKelasDropdown.innerHTML = '';
-            kelasForSiswaDropdown.innerHTML = '';
-            
-            // Filter classes by current school
             const filteredClasses = classes.filter(cls => cls.sekolah === currentSchool);
             
+            // Add "Semua Kelas" option to specific dropdowns
+            const allKelasOption = document.createElement('option');
+            allKelasOption.value = 'semua';
+            allKelasOption.textContent = 'Semua Kelas';
+            if(dropdowns[2]) dropdowns[2].appendChild(allKelasOption.cloneNode(true));
+            if(dropdowns[3]) dropdowns[3].appendChild(allKelasOption.cloneNode(true));
+
             // Add class options
             filteredClasses.forEach(cls => {
-                const option1 = document.createElement('option');
-                option1.value = cls.nama;
-                option1.textContent = cls.nama;
-                kelasDropdown.appendChild(option1);
-                
-                if (newKelasDropdown) {
-                    const option2 = document.createElement('option');
-                    option2.value = cls.nama;
-                    option2.textContent = cls.nama;
-                    newKelasDropdown.appendChild(option2);
-                }
-                
-                const option3 = document.createElement('option');
-                option3.value = cls.nama;
-                option3.textContent = cls.nama;
-                kelasForSiswaDropdown.appendChild(option3);
+                const option = document.createElement('option');
+                option.value = cls.nama;
+                option.textContent = cls.nama;
+                dropdowns.forEach(dd => { if (dd) dd.appendChild(option.cloneNode(true)); });
             });
             
-            // Restore selected values if still available
-            if (filteredClasses.some(cls => cls.nama === selectedKelas)) {
-                kelasDropdown.value = selectedKelas;
-            }
-            
-            if (newKelasDropdown && filteredClasses.some(cls => cls.nama === selectedNewKelas)) {
-                newKelasDropdown.value = selectedNewKelas;
-            }
-            
-            if (filteredClasses.some(cls => cls.nama === selectedKelasForSiswa)) {
-                kelasForSiswaDropdown.value = selectedKelasForSiswa;
-            } else if (filteredClasses.length > 0) {
-                kelasForSiswaDropdown.value = filteredClasses[0].nama;
-            }
-            
+            // Restore selected values
+            dropdowns.forEach((dd, index) => {
+                if (dd) {
+                    if ([...dd.options].some(opt => opt.value === savedValues[index])) {
+                        dd.value = savedValues[index];
+                    } else if (dd.options.length > 0) {
+                        dd.selectedIndex = 0;
+                    }
+                }
+            });
+
             renderStudentManagementList();
+            renderRekapTable();
         }
 
         // Update materi dropdown
@@ -822,15 +795,16 @@
             
             const selectedKelas = document.getElementById('kelasForSiswa').value;
             
-            // Filter students by selected class and current school
-            const filteredStudents = students.filter(student => 
-                student.kelas === selectedKelas && student.sekolah === currentSchool
-            );
+            let filteredStudents = students.filter(student => student.sekolah === currentSchool);
+            
+            if (selectedKelas !== 'semua') {
+                filteredStudents = filteredStudents.filter(student => student.kelas === selectedKelas);
+            }
             
             if (filteredStudents.length === 0) {
                 const emptyItem = document.createElement('li');
                 emptyItem.className = 'py-2 text-center text-gray-500';
-                emptyItem.textContent = 'Tidak ada siswa di kelas ini';
+                emptyItem.textContent = 'Tidak ada siswa yang cocok';
                 studentList.appendChild(emptyItem);
                 return;
             }
@@ -842,7 +816,7 @@
                 item.innerHTML = `
                     <div class="flex justify-between items-center">
                         <div>
-                            <p class="font-medium text-gray-800">${student.nama}</p>
+                            <p class="font-medium text-gray-800">${student.nama} (${student.kelas})</p>
                             <p class="text-sm text-gray-500">NISN: ${student.nisn}</p>
                         </div>
                         <button class="delete-student-btn text-red-500 hover:text-red-700" data-student-id="${student.id}">
@@ -861,7 +835,6 @@
                 btn.addEventListener('click', function() {
                     const studentId = parseInt(this.getAttribute('data-student-id'));
                     deleteStudent(studentId);
-                    renderStudentManagementList();
                 });
             });
         }
@@ -908,17 +881,15 @@
             document.getElementById(contentId).classList.remove('hidden');
             
             // Update tab styles
-            document.getElementById('tab1').classList.remove('tab-active');
-            document.getElementById('tab2').classList.remove('tab-active');
-            document.getElementById('tab3').classList.remove('tab-active');
-            document.getElementById('tab4').classList.remove('tab-active');
-            document.getElementById('tab1').classList.add('bg-white/20');
-            document.getElementById('tab2').classList.add('bg-white/20');
-            document.getElementById('tab3').classList.add('bg-white/20');
-            document.getElementById('tab4').classList.add('bg-white/20');
+            ['tab1', 'tab2', 'tab3', 'tab4'].forEach(id => {
+                const tab = document.getElementById(id);
+                tab.classList.remove('tab-active');
+                tab.classList.add('bg-white/20');
+            });
             
-            document.getElementById(tabId).classList.add('tab-active');
-            document.getElementById(tabId).classList.remove('bg-white/20');
+            const activeTab = document.getElementById(tabId);
+            activeTab.classList.add('tab-active');
+            activeTab.classList.remove('bg-white/20');
         }
 
         // Event listeners for manajemen tabs
@@ -937,23 +908,23 @@
         // Switch manajemen tab function
         function switchManajemenTab(tabId, contentId) {
             // Hide all content
-            document.getElementById('contentManajemenKelas').classList.add('hidden');
-            document.getElementById('contentManajemenMateri').classList.add('hidden');
-            document.getElementById('contentManajemenSiswa').classList.add('hidden');
+            ['contentManajemenKelas', 'contentManajemenMateri', 'contentManajemenSiswa'].forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+            });
             
             // Show selected content
             document.getElementById(contentId).classList.remove('hidden');
             
             // Update tab styles
-            document.getElementById('tabManajemenKelas').classList.remove('text-indigo-600', 'border-b-2', 'border-indigo-600');
-            document.getElementById('tabManajemenMateri').classList.remove('text-indigo-600', 'border-b-2', 'border-indigo-600');
-            document.getElementById('tabManajemenSiswa').classList.remove('text-indigo-600', 'border-b-2', 'border-indigo-600');
-            document.getElementById('tabManajemenKelas').classList.add('text-gray-500');
-            document.getElementById('tabManajemenMateri').classList.add('text-gray-500');
-            document.getElementById('tabManajemenSiswa').classList.add('text-gray-500');
+            ['tabManajemenKelas', 'tabManajemenMateri', 'tabManajemenSiswa'].forEach(id => {
+                const tab = document.getElementById(id);
+                tab.classList.remove('text-indigo-600', 'border-b-2', 'border-indigo-600');
+                tab.classList.add('text-gray-500');
+            });
             
-            document.getElementById(tabId).classList.add('text-indigo-600', 'border-b-2', 'border-indigo-600');
-            document.getElementById(tabId).classList.remove('text-gray-500');
+            const activeTab = document.getElementById(tabId);
+            activeTab.classList.add('text-indigo-600', 'border-b-2', 'border-indigo-600');
+            activeTab.classList.remove('text-gray-500');
         }
 
         // School switching
@@ -977,20 +948,22 @@
         document.getElementById('btnRekapHarian').addEventListener('click', function() {
             document.getElementById('rekapHarianFilter').classList.remove('hidden');
             document.getElementById('rekapBulananFilter').classList.add('hidden');
-            document.getElementById('btnRekapHarian').classList.add('bg-indigo-500', 'text-white');
-            document.getElementById('btnRekapHarian').classList.remove('bg-gray-200', 'text-gray-700');
-            document.getElementById('btnRekapBulanan').classList.remove('bg-indigo-500', 'text-white');
-            document.getElementById('btnRekapBulanan').classList.add('bg-gray-200', 'text-gray-700');
+            this.classList.add('bg-indigo-500', 'text-white');
+            this.classList.remove('bg-gray-200', 'text-gray-700');
+            const btnBulanan = document.getElementById('btnRekapBulanan');
+            btnBulanan.classList.remove('bg-indigo-500', 'text-white');
+            btnBulanan.classList.add('bg-gray-200', 'text-gray-700');
             renderRekapTable('harian');
         });
 
         document.getElementById('btnRekapBulanan').addEventListener('click', function() {
             document.getElementById('rekapHarianFilter').classList.add('hidden');
             document.getElementById('rekapBulananFilter').classList.remove('hidden');
-            document.getElementById('btnRekapHarian').classList.remove('bg-indigo-500', 'text-white');
-            document.getElementById('btnRekapHarian').classList.add('bg-gray-200', 'text-gray-700');
-            document.getElementById('btnRekapBulanan').classList.add('bg-indigo-500', 'text-white');
-            document.getElementById('btnRekapBulanan').classList.remove('bg-gray-200', 'text-gray-700');
+            this.classList.add('bg-indigo-500', 'text-white');
+            this.classList.remove('bg-gray-200', 'text-gray-700');
+            const btnHarian = document.getElementById('btnRekapHarian');
+            btnHarian.classList.remove('bg-indigo-500', 'text-white');
+            btnHarian.classList.add('bg-gray-200', 'text-gray-700');
             renderRekapTable('bulanan');
         });
 
@@ -999,12 +972,13 @@
             document.getElementById('rekapNilaiHarianFilter').classList.remove('hidden');
             document.getElementById('rekapNilaiBulananFilter').classList.add('hidden');
             document.getElementById('rekapNilaiMateriFilter').classList.add('hidden');
-            document.getElementById('btnRekapNilaiHarian').classList.add('bg-indigo-500', 'text-white');
-            document.getElementById('btnRekapNilaiHarian').classList.remove('bg-gray-200', 'text-gray-700');
-            document.getElementById('btnRekapNilaiBulanan').classList.remove('bg-indigo-500', 'text-white');
-            document.getElementById('btnRekapNilaiBulanan').classList.add('bg-gray-200', 'text-gray-700');
-            document.getElementById('btnRekapNilaiMateri').classList.remove('bg-indigo-500', 'text-white');
-            document.getElementById('btnRekapNilaiMateri').classList.add('bg-gray-200', 'text-gray-700');
+            this.classList.add('bg-indigo-500', 'text-white');
+            this.classList.remove('bg-gray-200', 'text-gray-700');
+            ['btnRekapNilaiBulanan', 'btnRekapNilaiMateri'].forEach(id => {
+                const btn = document.getElementById(id);
+                btn.classList.remove('bg-indigo-500', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
             renderRekapNilaiTable('harian');
         });
 
@@ -1012,12 +986,13 @@
             document.getElementById('rekapNilaiHarianFilter').classList.add('hidden');
             document.getElementById('rekapNilaiBulananFilter').classList.remove('hidden');
             document.getElementById('rekapNilaiMateriFilter').classList.add('hidden');
-            document.getElementById('btnRekapNilaiHarian').classList.remove('bg-indigo-500', 'text-white');
-            document.getElementById('btnRekapNilaiHarian').classList.add('bg-gray-200', 'text-gray-700');
-            document.getElementById('btnRekapNilaiBulanan').classList.add('bg-indigo-500', 'text-white');
-            document.getElementById('btnRekapNilaiBulanan').classList.remove('bg-gray-200', 'text-gray-700');
-            document.getElementById('btnRekapNilaiMateri').classList.remove('bg-indigo-500', 'text-white');
-            document.getElementById('btnRekapNilaiMateri').classList.add('bg-gray-200', 'text-gray-700');
+            this.classList.add('bg-indigo-500', 'text-white');
+            this.classList.remove('bg-gray-200', 'text-gray-700');
+             ['btnRekapNilaiHarian', 'btnRekapNilaiMateri'].forEach(id => {
+                const btn = document.getElementById(id);
+                btn.classList.remove('bg-indigo-500', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
             renderRekapNilaiTable('bulanan');
         });
 
@@ -1025,26 +1000,37 @@
             document.getElementById('rekapNilaiHarianFilter').classList.add('hidden');
             document.getElementById('rekapNilaiBulananFilter').classList.add('hidden');
             document.getElementById('rekapNilaiMateriFilter').classList.remove('hidden');
-            document.getElementById('btnRekapNilaiHarian').classList.remove('bg-indigo-500', 'text-white');
-            document.getElementById('btnRekapNilaiHarian').classList.add('bg-gray-200', 'text-gray-700');
-            document.getElementById('btnRekapNilaiBulanan').classList.remove('bg-indigo-500', 'text-white');
-            document.getElementById('btnRekapNilaiBulanan').classList.add('bg-gray-200', 'text-gray-700');
-            document.getElementById('btnRekapNilaiMateri').classList.add('bg-indigo-500', 'text-white');
-            document.getElementById('btnRekapNilaiMateri').classList.remove('bg-gray-200', 'text-gray-700');
+            this.classList.add('bg-indigo-500', 'text-white');
+            this.classList.remove('bg-gray-200', 'text-gray-700');
+            ['btnRekapNilaiHarian', 'btnRekapNilaiBulanan'].forEach(id => {
+                const btn = document.getElementById(id);
+                btn.classList.remove('bg-indigo-500', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
             renderRekapNilaiTable('materi');
         });
 
         // Render rekap table
-        function renderRekapTable(type = 'harian') {
+        function renderRekapTable(type) {
+            if (!type) {
+                type = document.getElementById('rekapHarianFilter').classList.contains('hidden') ? 'bulanan' : 'harian';
+            }
+            
             const tableBody = document.getElementById('rekapTableBody');
             tableBody.innerHTML = '';
             
+            const selectedKelas = document.getElementById('rekapKelasFilter').value;
+
             if (type === 'harian') {
                 const selectedDate = document.getElementById('tanggalRekap').value;
-                const dailyAttendance = attendanceData.filter(data => 
+                let dailyAttendance = attendanceData.filter(data => 
                     data.tanggal === selectedDate && data.sekolah === currentSchool
                 );
                 
+                if (selectedKelas !== 'semua') {
+                    dailyAttendance = dailyAttendance.filter(data => data.kelas === selectedKelas);
+                }
+
                 if (dailyAttendance.length > 0) {
                     let index = 1;
                     dailyAttendance.forEach(record => {
@@ -1052,19 +1038,14 @@
                             const row = document.createElement('tr');
                             row.className = index % 2 === 0 ? 'bg-white' : 'bg-gray-50';
                             
-                            const hadir = absen.status === 'hadir' ? 1 : 0;
-                            const izin = absen.status === 'izin' ? 1 : 0;
-                            const sakit = absen.status === 'sakit' ? 1 : 0;
-                            const absensi = absen.status === 'absen' ? 1 : 0;
-                            
                             row.innerHTML = `
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${index}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${absen.nisn}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${absen.nama}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center">${hadir}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center">${izin}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center">${sakit}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center">${absensi}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center">${absen.status === 'hadir' ? '✓' : ''}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center">${absen.status === 'izin' ? '✓' : ''}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center">${absen.status === 'sakit' ? '✓' : ''}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center">${absen.status === 'absen' ? '✓' : ''}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${absen.materi || record.mataPelajaran}</td>
                             `;
                             
@@ -1073,20 +1054,19 @@
                         });
                     });
                 } else {
-                    const emptyRow = document.createElement('tr');
-                    emptyRow.innerHTML = `
-                        <td colspan="8" class="px-6 py-4 text-center text-sm text-gray-500">Tidak ada data absensi untuk tanggal ini</td>
-                    `;
-                    tableBody.appendChild(emptyRow);
+                    tableBody.innerHTML = `<tr><td colspan="8" class="px-6 py-4 text-center text-sm text-gray-500">Tidak ada data absensi untuk filter ini</td></tr>`;
                 }
             } else if (type === 'bulanan') {
                 const selectedMonth = document.getElementById('bulanRekap').value;
-                const monthlyAttendance = attendanceData.filter(data => 
+                let monthlyAttendance = attendanceData.filter(data => 
                     data.tanggal.startsWith(selectedMonth) && data.sekolah === currentSchool
                 );
                 
+                if (selectedKelas !== 'semua') {
+                    monthlyAttendance = monthlyAttendance.filter(data => data.kelas === selectedKelas);
+                }
+
                 if (monthlyAttendance.length > 0) {
-                    // Group by student
                     const studentAttendance = {};
                     
                     monthlyAttendance.forEach(record => {
@@ -1095,29 +1075,17 @@
                                 studentAttendance[absen.nisn] = {
                                     nisn: absen.nisn,
                                     nama: absen.nama,
-                                    hadir: 0,
-                                    izin: 0,
-                                    sakit: 0,
-                                    absen: 0,
-                                    materi: []
+                                    hadir: 0, izin: 0, sakit: 0, absen: 0,
+                                    materi: new Set()
                                 };
                             }
-                            
-                            // Count attendance
-                            if (absen.status === 'hadir') studentAttendance[absen.nisn].hadir++;
-                            else if (absen.status === 'izin') studentAttendance[absen.nisn].izin++;
-                            else if (absen.status === 'sakit') studentAttendance[absen.nisn].sakit++;
-                            else if (absen.status === 'absen') studentAttendance[absen.nisn].absen++;
-                            
-                            // Add materi if not already in the list
+                            const studentData = studentAttendance[absen.nisn];
+                            studentData[absen.status]++;
                             const materi = absen.materi || record.mataPelajaran;
-                            if (!studentAttendance[absen.nisn].materi.includes(materi)) {
-                                studentAttendance[absen.nisn].materi.push(materi);
-                            }
+                            studentData.materi.add(materi);
                         });
                     });
                     
-                    // Display grouped data
                     let index = 1;
                     Object.values(studentAttendance).forEach(student => {
                         const row = document.createElement('tr');
@@ -1131,18 +1099,14 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center">${student.izin}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center">${student.sakit}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center">${student.absen}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${student.materi.join(', ')}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${[...student.materi].join(', ')}</td>
                         `;
                         
                         tableBody.appendChild(row);
                         index++;
                     });
                 } else {
-                    const emptyRow = document.createElement('tr');
-                    emptyRow.innerHTML = `
-                        <td colspan="8" class="px-6 py-4 text-center text-sm text-gray-500">Tidak ada data absensi untuk bulan ini</td>
-                    `;
-                    tableBody.appendChild(emptyRow);
+                     tableBody.innerHTML = `<tr><td colspan="8" class="px-6 py-4 text-center text-sm text-gray-500">Tidak ada data absensi untuk filter ini</td></tr>`;
                 }
             }
         }
@@ -1152,210 +1116,77 @@
             const tableBody = document.getElementById('rekapNilaiTableBody');
             tableBody.innerHTML = '';
             
+            let filteredNilaiData = [];
+            
             if (type === 'harian') {
                 const selectedDate = document.getElementById('tanggalRekapNilai').value;
-                const dailyNilai = nilaiData.filter(data => 
+                filteredNilaiData = nilaiData.filter(data => 
                     data.tanggal === selectedDate && data.sekolah === currentSchool
                 );
-                
-                if (dailyNilai.length > 0) {
-                    let index = 1;
-                    dailyNilai.forEach(record => {
-                        record.nilai.forEach(nilai => {
-                            if (nilai.nilai > 0) { // Only show students with values
-                                const row = document.createElement('tr');
-                                row.className = index % 2 === 0 ? 'bg-white' : 'bg-gray-50';
-                                
-                                row.innerHTML = `
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${index}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${nilai.nisn}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${nilai.nama}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${record.mataPelajaran}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center">${nilai.nilai}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${record.tanggal}</td>
-                                `;
-                                
-                                tableBody.appendChild(row);
-                                index++;
-                            }
-                        });
-                    });
-                    
-                    if (index === 1) { // No students with values
-                        const emptyRow = document.createElement('tr');
-                        emptyRow.innerHTML = `
-                            <td colspan="6" class="px-6 py-4 text-center text-sm text-gray-500">Tidak ada data nilai untuk tanggal ini</td>
-                        `;
-                        tableBody.appendChild(emptyRow);
-                    }
-                } else {
-                    const emptyRow = document.createElement('tr');
-                    emptyRow.innerHTML = `
-                        <td colspan="6" class="px-6 py-4 text-center text-sm text-gray-500">Tidak ada data nilai untuk tanggal ini</td>
-                    `;
-                    tableBody.appendChild(emptyRow);
-                }
             } else if (type === 'bulanan') {
                 const selectedMonth = document.getElementById('bulanRekapNilai').value;
-                const monthlyNilai = nilaiData.filter(data => 
+                filteredNilaiData = nilaiData.filter(data => 
                     data.tanggal.startsWith(selectedMonth) && data.sekolah === currentSchool
                 );
-                
-                if (monthlyNilai.length > 0) {
-                    // Group by student and materi
-                    const studentNilai = {};
-                    
-                    monthlyNilai.forEach(record => {
-                        record.nilai.forEach(nilai => {
-                            if (nilai.nilai > 0) { // Only include students with values
-                                const key = `${nilai.nisn}-${record.mataPelajaran}`;
-                                
-                                if (!studentNilai[key]) {
-                                    studentNilai[key] = {
-                                        nisn: nilai.nisn,
-                                        nama: nilai.nama,
-                                        materi: record.mataPelajaran,
-                                        nilai: [],
-                                        tanggal: []
-                                    };
-                                }
-                                
-                                studentNilai[key].nilai.push(nilai.nilai);
-                                studentNilai[key].tanggal.push(record.tanggal);
-                            }
-                        });
-                    });
-                    
-                    // Display grouped data
-                    let index = 1;
-                    Object.values(studentNilai).forEach(student => {
-                        const row = document.createElement('tr');
-                        row.className = index % 2 === 0 ? 'bg-white' : 'bg-gray-50';
-                        
-                        // Calculate average nilai
-                        const avgNilai = student.nilai.reduce((a, b) => a + b, 0) / student.nilai.length;
-                        
-                        row.innerHTML = `
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${index}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${student.nisn}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${student.nama}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${student.materi}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center">${avgNilai.toFixed(1)}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${student.tanggal.join(', ')}</td>
-                        `;
-                        
-                        tableBody.appendChild(row);
-                        index++;
-                    });
-                    
-                    if (index === 1) { // No students with values
-                        const emptyRow = document.createElement('tr');
-                        emptyRow.innerHTML = `
-                            <td colspan="6" class="px-6 py-4 text-center text-sm text-gray-500">Tidak ada data nilai untuk bulan ini</td>
-                        `;
-                        tableBody.appendChild(emptyRow);
-                    }
-                } else {
-                    const emptyRow = document.createElement('tr');
-                    emptyRow.innerHTML = `
-                        <td colspan="6" class="px-6 py-4 text-center text-sm text-gray-500">Tidak ada data nilai untuk bulan ini</td>
-                    `;
-                    tableBody.appendChild(emptyRow);
-                }
             } else if (type === 'materi') {
                 const selectedMateri = document.getElementById('materiRekapNilai').value;
-                const materiNilai = nilaiData.filter(data => 
+                filteredNilaiData = nilaiData.filter(data => 
                     data.mataPelajaran === selectedMateri && data.sekolah === currentSchool
                 );
-                
-                if (materiNilai.length > 0) {
-                    // Group by student
-                    const studentNilai = {};
-                    
-                    materiNilai.forEach(record => {
-                        record.nilai.forEach(nilai => {
-                            if (nilai.nilai > 0) { // Only include students with values
-                                if (!studentNilai[nilai.nisn]) {
-                                    studentNilai[nilai.nisn] = {
-                                        nisn: nilai.nisn,
-                                        nama: nilai.nama,
-                                        nilai: [],
-                                        tanggal: []
-                                    };
-                                }
-                                
-                                studentNilai[nilai.nisn].nilai.push(nilai.nilai);
-                                studentNilai[nilai.nisn].tanggal.push(record.tanggal);
-                            }
-                        });
-                    });
-                    
-                    // Display grouped data
-                    let index = 1;
-                    Object.values(studentNilai).forEach(student => {
-                        const row = document.createElement('tr');
-                        row.className = index % 2 === 0 ? 'bg-white' : 'bg-gray-50';
-                        
-                        // Calculate average nilai
-                        const avgNilai = student.nilai.reduce((a, b) => a + b, 0) / student.nilai.length;
-                        
-                        row.innerHTML = `
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${index}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${student.nisn}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${student.nama}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${selectedMateri}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center">${avgNilai.toFixed(1)}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${student.tanggal.join(', ')}</td>
-                        `;
-                        
-                        tableBody.appendChild(row);
-                        index++;
-                    });
-                    
-                    if (index === 1) { // No students with values
-                        const emptyRow = document.createElement('tr');
-                        emptyRow.innerHTML = `
-                            <td colspan="6" class="px-6 py-4 text-center text-sm text-gray-500">Tidak ada data nilai untuk materi ini</td>
-                        `;
-                        tableBody.appendChild(emptyRow);
+            }
+            
+            const studentScores = {};
+
+            filteredNilaiData.forEach(record => {
+                record.nilai.forEach(nilaiItem => {
+                    if (nilaiItem.nilai && nilaiItem.nilai > 0) {
+                        const key = `${nilaiItem.nisn}-${record.mataPelajaran}`;
+                        if (!studentScores[key]) {
+                            studentScores[key] = {
+                                nisn: nilaiItem.nisn,
+                                nama: nilaiItem.nama,
+                                materi: record.mataPelajaran,
+                                scores: [],
+                                dates: new Set()
+                            };
+                        }
+                        studentScores[key].scores.push(nilaiItem.nilai);
+                        studentScores[key].dates.add(record.tanggal);
                     }
-                } else {
-                    const emptyRow = document.createElement('tr');
-                    emptyRow.innerHTML = `
-                        <td colspan="6" class="px-6 py-4 text-center text-sm text-gray-500">Tidak ada data nilai untuk materi ini</td>
+                });
+            });
+
+            if (Object.keys(studentScores).length > 0) {
+                let index = 1;
+                Object.values(studentScores).forEach(student => {
+                    const row = document.createElement('tr');
+                    row.className = index % 2 === 0 ? 'bg-white' : 'bg-gray-50';
+                    const avgScore = student.scores.reduce((a, b) => a + b, 0) / student.scores.length;
+
+                    row.innerHTML = `
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${index}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${student.nisn}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${student.nama}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${student.materi}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center">${avgScore.toFixed(1)}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${[...student.dates].join(', ')}</td>
                     `;
-                    tableBody.appendChild(emptyRow);
-                }
+                    tableBody.appendChild(row);
+                    index++;
+                });
+            } else {
+                tableBody.innerHTML = `<tr><td colspan="6" class="px-6 py-4 text-center text-sm text-gray-500">Tidak ada data nilai untuk filter ini</td></tr>`;
             }
         }
 
-        // Event listeners for date/month changes
-        document.getElementById('tanggalRekap').addEventListener('change', function() {
-            renderRekapTable('harian');
-        });
-
-        document.getElementById('bulanRekap').addEventListener('change', function() {
-            renderRekapTable('bulanan');
-        });
-
-        document.getElementById('tanggalRekapNilai').addEventListener('change', function() {
-            renderRekapNilaiTable('harian');
-        });
-
-        document.getElementById('bulanRekapNilai').addEventListener('change', function() {
-            renderRekapNilaiTable('bulanan');
-        });
-
-        document.getElementById('materiRekapNilai').addEventListener('change', function() {
-            renderRekapNilaiTable('materi');
-        });
-
-        // Event listener for class change in student management
-        document.getElementById('kelasForSiswa').addEventListener('change', function() {
-            renderStudentManagementList();
-        });
-
-        // Event listener for class change in attendance
+        // Event listeners for date/month/class changes
+        document.getElementById('tanggalRekap').addEventListener('change', () => renderRekapTable('harian'));
+        document.getElementById('bulanRekap').addEventListener('change', () => renderRekapTable('bulanan'));
+        document.getElementById('rekapKelasFilter').addEventListener('change', () => renderRekapTable());
+        document.getElementById('tanggalRekapNilai').addEventListener('change', () => renderRekapNilaiTable('harian'));
+        document.getElementById('bulanRekapNilai').addEventListener('change', () => renderRekapNilaiTable('bulanan'));
+        document.getElementById('materiRekapNilai').addEventListener('change', () => renderRekapNilaiTable('materi'));
+        document.getElementById('kelasForSiswa').addEventListener('change', renderStudentManagementList);
         document.getElementById('kelas').addEventListener('change', function() {
             renderStudentTable();
             loadAttendanceDataForDate();
@@ -1366,12 +1197,10 @@
             document.querySelectorAll('.attendance-radio[data-status="hadir"]').forEach(radio => {
                 const studentId = radio.getAttribute('data-student-id');
                 document.querySelectorAll(`.attendance-radio[data-student-id="${studentId}"]`).forEach(r => {
-                    r.classList.remove('active');
-                    r.classList.remove('hadir', 'izin', 'sakit', 'absen');
+                    r.classList.remove('active', 'hadir', 'izin', 'sakit', 'absen');
                 });
                 
-                radio.classList.add('active');
-                radio.classList.add('hadir');
+                radio.classList.add('active', 'hadir');
             });
         });
 
@@ -1401,17 +1230,10 @@
             
             if (nisn && nama) {
                 const newId = students.length > 0 ? Math.max(...students.map(s => s.id)) + 1 : 1;
-                students.push({
-                    id: newId,
-                    nisn: nisn,
-                    nama: nama,
-                    kelas: kelas,
-                    sekolah: currentSchool
-                });
+                students.push({ id: newId, nisn, nama, kelas, sekolah: currentSchool });
                 
                 localStorage.setItem('students', JSON.stringify(students));
-                renderStudentTable();
-                renderStudentManagementList();
+                updateUI();
                 
                 document.getElementById('newNisn').value = '';
                 document.getElementById('newNama').value = '';
@@ -1431,12 +1253,7 @@
             
             if (namaKelas && waliKelas) {
                 const newId = classes.length > 0 ? Math.max(...classes.map(c => c.id)) + 1 : 1;
-                classes.push({
-                    id: newId,
-                    nama: namaKelas,
-                    wali: waliKelas,
-                    sekolah: sekolah
-                });
+                classes.push({ id: newId, nama: namaKelas, wali: waliKelas, sekolah: sekolah });
                 
                 localStorage.setItem('classes', JSON.stringify(classes));
                 renderClassList();
@@ -1458,12 +1275,7 @@
             
             if (kodeMateri && namaMateri) {
                 const newId = materis.length > 0 ? Math.max(...materis.map(m => m.id)) + 1 : 1;
-                materis.push({
-                    id: newId,
-                    kode: kodeMateri,
-                    nama: namaMateri,
-                    deskripsi: deskripsiMateri
-                });
+                materis.push({ id: newId, kode: kodeMateri, nama: namaMateri, deskripsi: deskripsiMateri });
                 
                 localStorage.setItem('materis', JSON.stringify(materis));
                 renderMateriList();
@@ -1478,7 +1290,7 @@
             }
         });
 
-        // Simpan Absensi button
+        // Simpan Absensi & Nilai button
         document.getElementById('btnSimpan').addEventListener('click', function() {
             const tanggal = document.getElementById('tanggal').value;
             const kelas = document.getElementById('kelas').value;
@@ -1489,25 +1301,19 @@
                 return;
             }
             
-            const absensiData = [];
-            const nilaiData = [];
+            const absensiDataArr = [];
+            const nilaiDataArr = [];
             
-            // Filter students by selected class and school
-            const filteredStudents = students.filter(
-                student => student.kelas === kelas && student.sekolah === currentSchool
-            );
+            const filteredStudents = students.filter(student => student.kelas === kelas && student.sekolah === currentSchool);
             
             filteredStudents.forEach(student => {
                 const activeRadio = document.querySelector(`.attendance-radio[data-student-id="${student.id}"].active`);
                 const materiSelect = document.querySelector(`.materi-select[data-student-id="${student.id}"]`);
                 const nilaiInput = document.querySelector(`.nilai-input[data-student-id="${student.id}"]`);
                 
-                let status = 'hadir'; // Default status
-                if (activeRadio) {
-                    status = activeRadio.getAttribute('data-status');
-                }
+                const status = activeRadio ? activeRadio.getAttribute('data-status') : 'hadir';
                 
-                absensiData.push({
+                absensiDataArr.push({
                     studentId: student.id,
                     nisn: student.nisn,
                     nama: student.nama,
@@ -1515,7 +1321,7 @@
                     materi: materiSelect ? materiSelect.value : mataPelajaran
                 });
                 
-                nilaiData.push({
+                nilaiDataArr.push({
                     studentId: student.id,
                     nisn: student.nisn,
                     nama: student.nama,
@@ -1523,225 +1329,110 @@
                 });
             });
             
-            // Save attendance data
-            const attendanceRecord = {
-                tanggal: tanggal,
-                kelas: kelas,
-                mataPelajaran: mataPelajaran,
-                sekolah: currentSchool,
-                absensi: absensiData
-            };
-            
-            // Save nilai data
-            const nilaiRecord = {
-                tanggal: tanggal,
-                kelas: kelas,
-                mataPelajaran: mataPelajaran,
-                sekolah: currentSchool,
-                nilai: nilaiData
-            };
-            
-            // Check if record already exists
-            const existingAttendanceIndex = attendanceData.findIndex(data => 
-                data.tanggal === tanggal && 
-                data.kelas === kelas && 
-                data.sekolah === currentSchool
-            );
-            
-            const existingNilaiIndex = nilaiData.findIndex(data => 
-                data.tanggal === tanggal && 
-                data.kelas === kelas && 
-                data.sekolah === currentSchool
-            );
-            
+            const recordIdentifier = { tanggal, kelas, sekolah: currentSchool };
+
+            // Upsert Attendance Data
+            const attendanceRecord = { ...recordIdentifier, mataPelajaran, absensi: absensiDataArr };
+            const existingAttendanceIndex = attendanceData.findIndex(d => d.tanggal === tanggal && d.kelas === kelas && d.sekolah === currentSchool);
             if (existingAttendanceIndex !== -1) {
                 attendanceData[existingAttendanceIndex] = attendanceRecord;
             } else {
                 attendanceData.push(attendanceRecord);
             }
-            
+
+            // Upsert Nilai Data
+            const nilaiRecord = { ...recordIdentifier, mataPelajaran, nilai: nilaiDataArr };
+            const existingNilaiIndex = nilaiData.findIndex(d => d.tanggal === tanggal && d.kelas === kelas && d.sekolah === currentSchool);
             if (existingNilaiIndex !== -1) {
                 nilaiData[existingNilaiIndex] = nilaiRecord;
             } else {
                 nilaiData.push(nilaiRecord);
             }
-            
-            // Save to localStorage
+
             localStorage.setItem('attendanceData', JSON.stringify(attendanceData));
-            localStorage.setItem('nilaiData', JSON.stringify([nilaiRecord]));
+            localStorage.setItem('nilaiData', JSON.stringify(nilaiData));
             showNotification('Data absensi dan nilai berhasil disimpan!');
         });
 
         // Export to Excel buttons
-        document.getElementById('btnExport').addEventListener('click', function() {
-            exportToExcel('attendance');
-        });
-
-        document.getElementById('btnExportRekap').addEventListener('click', function() {
-            exportToExcel('rekap');
-        });
-
-        document.getElementById('btnExportRekapNilai').addEventListener('click', function() {
-            exportToExcel('rekapNilai');
-        });
+        document.getElementById('btnExport').addEventListener('click', () => exportToExcel('attendance'));
+        document.getElementById('btnExportRekap').addEventListener('click', () => exportToExcel('rekap'));
+        document.getElementById('btnExportRekapNilai').addEventListener('click', () => exportToExcel('rekapNilai'));
 
         // Export to Excel function
         function exportToExcel(type) {
             let data = [];
-            let fileName = '';
+            let fileName = 'Export.xlsx';
             
             if (type === 'attendance') {
-                // Get current attendance data
                 const tanggal = document.getElementById('tanggal').value;
                 const kelas = document.getElementById('kelas').value;
                 const mataPelajaran = document.getElementById('mataPelajaran').value;
+                fileName = `Absensi_${kelas}_${tanggal}.xlsx`;
+                data.push(['No', 'NISN', 'Nama Siswa', 'Status', 'Materi', 'Nilai']);
                 
-                // Create header row
-                const header = ['No', 'NISN', 'Nama Siswa', 'Status', 'Materi', 'Nilai'];
-                data.push(header);
-                
-                // Get student data
-                const filteredStudents = students.filter(
-                    student => student.kelas === kelas && student.sekolah === currentSchool
-                );
-                
+                const filteredStudents = students.filter(s => s.kelas === kelas && s.sekolah === currentSchool);
                 filteredStudents.forEach((student, index) => {
                     const activeRadio = document.querySelector(`.attendance-radio[data-student-id="${student.id}"].active`);
                     const materiSelect = document.querySelector(`.materi-select[data-student-id="${student.id}"]`);
                     const nilaiInput = document.querySelector(`.nilai-input[data-student-id="${student.id}"]`);
-                    
-                    let status = 'Hadir'; // Default status
-                    if (activeRadio) {
-                        const statusCode = activeRadio.getAttribute('data-status');
-                        if (statusCode === 'izin') status = 'Izin';
-                        else if (statusCode === 'sakit') status = 'Sakit';
-                        else if (statusCode === 'absen') status = 'Absen';
-                    }
-                    
-                    const row = [
+                    const status = activeRadio ? activeRadio.getAttribute('data-status') : 'hadir';
+                    data.push([
                         index + 1,
                         student.nisn,
                         student.nama,
-                        status,
+                        status.charAt(0).toUpperCase() + status.slice(1),
                         materiSelect ? materiSelect.value : mataPelajaran,
                         nilaiInput && nilaiInput.value ? nilaiInput.value : '0'
-                    ];
-                    
-                    data.push(row);
+                    ]);
                 });
-                
-                fileName = `Absensi_${kelas}_${tanggal}.xlsx`;
-            } else if (type === 'rekap') {
-                // Get rekap data based on current view
-                const isHarian = !document.getElementById('rekapHarianFilter').classList.contains('hidden');
-                
-                if (isHarian) {
-                    const tanggal = document.getElementById('tanggalRekap').value;
-                    fileName = `Rekap_Absensi_Harian_${tanggal}.xlsx`;
-                    
-                    // Create header row
-                    const header = ['No', 'NISN', 'Nama Siswa', 'Hadir', 'Izin', 'Sakit', 'Absen', 'Materi'];
-                    data.push(header);
-                    
-                    // Get data from table
-                    const rows = document.querySelectorAll('#rekapTableBody tr');
-                    rows.forEach(row => {
-                        const cells = row.querySelectorAll('td');
-                        if (cells.length > 1) { // Skip empty message row
-                            const rowData = [];
-                            cells.forEach(cell => {
-                                rowData.push(cell.textContent);
-                            });
-                            data.push(rowData);
-                        }
-                    });
-                } else {
-                    const bulan = document.getElementById('bulanRekap').value;
-                    fileName = `Rekap_Absensi_Bulanan_${bulan}.xlsx`;
-                    
-                    // Create header row
-                    const header = ['No', 'NISN', 'Nama Siswa', 'Hadir', 'Izin', 'Sakit', 'Absen', 'Materi'];
-                    data.push(header);
-                    
-                    // Get data from table
-                    const rows = document.querySelectorAll('#rekapTableBody tr');
-                    rows.forEach(row => {
-                        const cells = row.querySelectorAll('td');
-                        if (cells.length > 1) { // Skip empty message row
-                            const rowData = [];
-                            cells.forEach(cell => {
-                                rowData.push(cell.textContent);
-                            });
-                            data.push(rowData);
-                        }
-                    });
-                }
-            } else if (type === 'rekapNilai') {
-                // Get rekap nilai data based on current view
-                let viewType = 'harian';
-                if (!document.getElementById('rekapNilaiHarianFilter').classList.contains('hidden')) {
-                    viewType = 'harian';
-                } else if (!document.getElementById('rekapNilaiBulananFilter').classList.contains('hidden')) {
-                    viewType = 'bulanan';
-                } else {
-                    viewType = 'materi';
-                }
-                
-                if (viewType === 'harian') {
-                    const tanggal = document.getElementById('tanggalRekapNilai').value;
-                    fileName = `Rekap_Nilai_Harian_${tanggal}.xlsx`;
-                } else if (viewType === 'bulanan') {
-                    const bulan = document.getElementById('bulanRekapNilai').value;
-                    fileName = `Rekap_Nilai_Bulanan_${bulan}.xlsx`;
-                } else {
-                    const materi = document.getElementById('materiRekapNilai').value;
-                    fileName = `Rekap_Nilai_Materi_${materi.replace(/\s+/g, '_')}.xlsx`;
-                }
-                
-                // Create header row
-                const header = ['No', 'NISN', 'Nama Siswa', 'Materi', 'Nilai', 'Tanggal'];
-                data.push(header);
-                
-                // Get data from table
-                const rows = document.querySelectorAll('#rekapNilaiTableBody tr');
+
+            } else if (type === 'rekap' || type === 'rekapNilai') {
+                const tableId = type === 'rekap' ? '#rekapTableBody' : '#rekapNilaiTableBody';
+                const headerId = type === 'rekap' ? '#content2 thead tr' : '#content4 thead tr';
+                const headerCells = [...document.querySelector(headerId).cells].map(c => c.textContent);
+                data.push(headerCells);
+
+                const rows = document.querySelectorAll(`${tableId} tr`);
                 rows.forEach(row => {
-                    const cells = row.querySelectorAll('td');
-                    if (cells.length > 1) { // Skip empty message row
-                        const rowData = [];
-                        cells.forEach(cell => {
-                            rowData.push(cell.textContent);
-                        });
-                        data.push(rowData);
+                    if (row.cells.length > 1) {
+                        data.push([...row.cells].map(cell => cell.textContent));
                     }
                 });
+
+                if(type === 'rekap') {
+                     const isHarian = !document.getElementById('rekapHarianFilter').classList.contains('hidden');
+                     const filterValue = isHarian ? document.getElementById('tanggalRekap').value : document.getElementById('bulanRekap').value;
+                     fileName = `Rekap_Absensi_${isHarian ? 'Harian' : 'Bulanan'}_${filterValue}.xlsx`;
+                } else {
+                     let viewType = 'Harian';
+                     let filterValue = document.getElementById('tanggalRekapNilai').value;
+                     if (!document.getElementById('rekapNilaiBulananFilter').classList.contains('hidden')) {
+                         viewType = 'Bulanan';
+                         filterValue = document.getElementById('bulanRekapNilai').value;
+                     } else if (!document.getElementById('rekapNilaiMateriFilter').classList.contains('hidden')) {
+                         viewType = 'Materi';
+                         filterValue = document.getElementById('materiRekapNilai').value.replace(/\s+/g, '_');
+                     }
+                      fileName = `Rekap_Nilai_${viewType}_${filterValue}.xlsx`;
+                }
             }
-            
-            // Create workbook and worksheet
+
             const ws = XLSX.utils.aoa_to_sheet(data);
             const wb = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-            
-            // Save file
+            XLSX.utils.book_append_sheet(wb, ws, 'Data');
             XLSX.writeFile(wb, fileName);
         }
 
         // Download template button
         document.getElementById('btnDownloadTemplate').addEventListener('click', function() {
-            // Create template data
-            const data = [
-                ['NISN', 'Nama Siswa', 'Kelas'],
-                ['0001', 'Nama Siswa 1', document.getElementById('kelasForSiswa').value],
-                ['0002', 'Nama Siswa 2', document.getElementById('kelasForSiswa').value],
-                ['0003', 'Nama Siswa 3', document.getElementById('kelasForSiswa').value]
-            ];
+            const selectedKelas = document.getElementById('kelasForSiswa').value;
+            const data = [['NISN', 'Nama Siswa']];
             
-            // Create workbook and worksheet
             const ws = XLSX.utils.aoa_to_sheet(data);
             const wb = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(wb, ws, 'Template');
-            
-            // Save file
-            XLSX.writeFile(wb, 'Template_Import_Siswa.xlsx');
+            XLSX.writeFile(wb, `Template_Import_Siswa_${selectedKelas}.xlsx`);
         });
 
         // Import file handler
@@ -1753,50 +1444,42 @@
             reader.onload = function(e) {
                 const data = new Uint8Array(e.target.result);
                 const workbook = XLSX.read(data, { type: 'array' });
-                
-                // Get first worksheet
-                const worksheetName = workbook.SheetNames[0];
-                const worksheet = workbook.Sheets[worksheetName];
-                
-                // Convert to JSON
+                const worksheet = workbook.Sheets[workbook.SheetNames[0]];
                 const jsonData = XLSX.utils.sheet_to_json(worksheet);
                 
-                // Process data
                 if (jsonData.length > 0) {
                     const selectedKelas = document.getElementById('kelasForSiswa').value;
+                    if (selectedKelas === 'semua') {
+                        alert('Silakan pilih kelas spesifik untuk mengimpor siswa.');
+                        e.target.value = ''; // Reset file input
+                        return;
+                    }
                     
+                    let importedCount = 0;
                     jsonData.forEach(row => {
-                        // Check if required fields exist
-                        if (row.NISN && row['Nama Siswa']) {
-                            // Check if student already exists
-                            const existingStudent = students.find(s => 
-                                s.nisn === row.NISN.toString() && 
-                                s.sekolah === currentSchool
-                            );
-                            
+                        const nisn = row.NISN ? row.NISN.toString() : null;
+                        const nama = row['Nama Siswa'];
+                        if (nisn && nama) {
+                            const existingStudent = students.find(s => s.nisn === nisn && s.sekolah === currentSchool);
                             if (!existingStudent) {
                                 const newId = students.length > 0 ? Math.max(...students.map(s => s.id)) + 1 : 1;
                                 students.push({
                                     id: newId,
-                                    nisn: row.NISN.toString(),
-                                    nama: row['Nama Siswa'],
-                                    kelas: row.Kelas || selectedKelas,
+                                    nisn: nisn,
+                                    nama: nama,
+                                    kelas: selectedKelas, // Assign to selected class
                                     sekolah: currentSchool
                                 });
+                                importedCount++;
                             }
                         }
                     });
                     
-                    // Save to localStorage
                     localStorage.setItem('students', JSON.stringify(students));
-                    renderStudentTable();
-                    renderStudentManagementList();
-                    
-                    showNotification(`${jsonData.length} siswa berhasil diimpor!`);
+                    updateUI();
+                    showNotification(`${importedCount} siswa berhasil diimpor ke kelas ${selectedKelas}!`);
                 }
-                
-                // Reset file input
-                e.target.value = '';
+                e.target.value = ''; // Reset file input
             };
             reader.readAsArrayBuffer(file);
         });
@@ -1814,7 +1497,6 @@
                 title = `Rekap Absensi Bulanan - ${bulan}`;
             }
             
-            // Create print window
             const printWindow = window.open('', '_blank');
             printWindow.document.write(`
                 <!DOCTYPE html>
@@ -1823,27 +1505,22 @@
                     <title>${title}</title>
                     <style>
                         body { font-family: Arial, sans-serif; margin: 20px; }
-                        h1 { text-align: center; margin-bottom: 20px; }
-                        table { width: 100%; border-collapse: collapse; }
+                        h1, h2, h3 { text-align: center; }
+                        table { width: 100%; border-collapse: collapse; margin-top: 20px;}
                         th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
                         th { background-color: #f2f2f2; }
+                        @media print {
+                            body { -webkit-print-color-adjust: exact; }
+                        }
                     </style>
                 </head>
                 <body>
                     <h1>${title}</h1>
                     <h2>Sekolah: ${currentSchool}</h2>
+                    <h3>Kelas: ${document.getElementById('rekapKelasFilter').value.replace('semua', 'Semua Kelas')}</h3>
                     <table>
                         <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>NISN</th>
-                                <th>Nama Siswa</th>
-                                <th>Hadir</th>
-                                <th>Izin</th>
-                                <th>Sakit</th>
-                                <th>Absen</th>
-                                <th>Materi</th>
-                            </tr>
+                            ${document.querySelector('#content2 thead').innerHTML}
                         </thead>
                         <tbody>
                             ${document.getElementById('rekapTableBody').innerHTML}
@@ -1860,5 +1537,5 @@
             }, 500);
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'962038f02662b5a8',t:'MTc1Mjk5MTA2MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
